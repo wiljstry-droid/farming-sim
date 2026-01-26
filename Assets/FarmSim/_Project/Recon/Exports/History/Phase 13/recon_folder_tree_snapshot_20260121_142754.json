@@ -1,0 +1,284 @@
+﻿{
+  "reconVersion": "1.0",
+  "generatedUtc": "2026-01-21 14:27:54Z",
+  "root": {
+    "name": "Assets",
+    "children": [
+      {
+        "name": "FarmSim",
+        "children": [
+          {
+            "name": "_Application",
+            "children": [
+              {
+                "name": "Bootstrap",
+                "children": [
+                  {
+                    "name": "Contracts",
+                    "children": []
+                  },
+                  {
+                    "name": "Diagnostics",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Simulation",
+                "children": [
+                  {
+                    "name": "Field",
+                    "children": [
+                      {
+                        "name": "Model",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "HUD",
+                    "children": []
+                  },
+                  {
+                    "name": "Step",
+                    "children": [
+                      {
+                        "name": "Contracts",
+                        "children": []
+                      },
+                      {
+                        "name": "Diagnostics",
+                        "children": []
+                      },
+                      {
+                        "name": "Model",
+                        "children": []
+                      },
+                      {
+                        "name": "Pipeline",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Tick",
+                    "children": [
+                      {
+                        "name": "Contracts",
+                        "children": []
+                      },
+                      {
+                        "name": "Diagnostics",
+                        "children": []
+                      },
+                      {
+                        "name": "Model",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Time",
+                    "children": [
+                      {
+                        "name": "Contracts",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "_Project",
+            "children": [
+              {
+                "name": "Editor",
+                "children": []
+              },
+              {
+                "name": "Recon",
+                "children": [
+                  {
+                    "name": "Exports",
+                    "children": [
+                      {
+                        "name": "Phase 0",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 1",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 2",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 3",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 4",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 5",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 6",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 7",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 8",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 9",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 10",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 11",
+                        "children": []
+                      },
+                      {
+                        "name": "Phase 12",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Settings",
+        "children": [
+          {
+            "name": "HDRPDefaultResources",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "TextMesh Pro",
+        "children": [
+          {
+            "name": "Examples & Extras",
+            "children": [
+              {
+                "name": "Fonts",
+                "children": []
+              },
+              {
+                "name": "Materials",
+                "children": []
+              },
+              {
+                "name": "Prefabs",
+                "children": []
+              },
+              {
+                "name": "Resources",
+                "children": [
+                  {
+                    "name": "Color Gradient Presets",
+                    "children": []
+                  },
+                  {
+                    "name": "Fonts & Materials",
+                    "children": []
+                  },
+                  {
+                    "name": "Sprite Assets",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Scenes",
+                "children": [
+                  {
+                    "name": "28 - HDRP Shader Example",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Scripts",
+                "children": []
+              },
+              {
+                "name": "Sprites",
+                "children": []
+              },
+              {
+                "name": "Textures",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Fonts",
+            "children": []
+          },
+          {
+            "name": "Resources",
+            "children": [
+              {
+                "name": "Fonts & Materials",
+                "children": []
+              },
+              {
+                "name": "Sprite Assets",
+                "children": []
+              },
+              {
+                "name": "Style Sheets",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Shaders",
+            "children": []
+          },
+          {
+            "name": "Sprites",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "TutorialInfo",
+        "children": [
+          {
+            "name": "Icons",
+            "children": []
+          },
+          {
+            "name": "Scripts",
+            "children": [
+              {
+                "name": "Editor",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

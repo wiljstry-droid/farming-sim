@@ -1,0 +1,112 @@
+{
+    "reconVersion": "1.0",
+    "generatedUtc": "2026-01-17 17:08:39Z",
+    "root": {
+        "name": "Assets",
+        "children": [
+            {
+                "name": "FarmSim",
+                "children": [
+                    {
+                        "name": "_Application",
+                        "children": [
+                            {
+                                "name": "Bootstrap",
+                                "children": [
+                                    {
+                                        "name": "Contracts",
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "Diagnostics",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Simulation",
+                                "children": [
+                                    {
+                                        "name": "Tick",
+                                        "children": [
+                                            {
+                                                "name": "Contracts",
+                                                "children": []
+                                            },
+                                            {
+                                                "name": "Model",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Time",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "_Project",
+                        "children": [
+                            {
+                                "name": "Editor",
+                                "children": []
+                            },
+                            {
+                                "name": "Recon",
+                                "children": [
+                                    {
+                                        "name": "Exports",
+                                        "children": [
+                                            {
+                                                "name": "Phase 0",
+                                                "children": []
+                                            },
+                                            {
+                                                "name": "Phase 1",
+                                                "children": []
+                                            },
+                                            {
+                                                "name": "Phase 2",
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Settings",
+                "children": [
+                    {
+                        "name": "HDRPDefaultResources",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "TutorialInfo",
+                "children": [
+                    {
+                        "name": "Icons",
+                        "children": []
+                    },
+                    {
+                        "name": "Scripts",
+                        "children": [
+                            {
+                                "name": "Editor",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

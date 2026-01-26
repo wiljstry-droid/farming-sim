@@ -1,0 +1,94 @@
+{
+    "reconVersion": "1.0",
+    "generatedUtc": "2026-01-17 17:08:40Z",
+    "sceneName": "OutdoorsScene",
+    "scenePath": "Assets/OutdoorsScene.unity",
+    "roots": [
+        {
+            "name": "Main Camera",
+            "isActiveSelf": true,
+            "components": [
+                "UnityEngine.Transform",
+                "UnityEngine.Camera",
+                "UnityEngine.AudioListener",
+                "UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData"
+            ],
+            "children": []
+        },
+        {
+            "name": "Sun",
+            "isActiveSelf": true,
+            "components": [
+                "UnityEngine.Transform",
+                "UnityEngine.Light",
+                "UnityEngine.Rendering.HighDefinition.HDAdditionalLightData"
+            ],
+            "children": []
+        },
+        {
+            "name": "Sky and Fog Volume",
+            "isActiveSelf": true,
+            "components": [
+                "UnityEngine.Transform",
+                "UnityEngine.Rendering.Volume"
+            ],
+            "children": []
+        },
+        {
+            "name": "StaticLightingSky",
+            "isActiveSelf": true,
+            "components": [
+                "UnityEngine.Transform",
+                "UnityEngine.Rendering.HighDefinition.StaticLightingSky"
+            ],
+            "children": []
+        },
+        {
+            "name": "AppRoot",
+            "isActiveSelf": true,
+            "components": [
+                "UnityEngine.Transform"
+            ],
+            "children": [
+                {
+                    "name": "BootstrapAuthority",
+                    "isActiveSelf": true,
+                    "components": [
+                        "UnityEngine.Transform",
+                        "FarmSim.Application.Bootstrap.BootstrapAuthority",
+                        "FarmSim.Application.Bootstrap.Diagnostics.BootstrapDiagnostics"
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "Simulation",
+                    "isActiveSelf": true,
+                    "components": [
+                        "UnityEngine.Transform"
+                    ],
+                    "children": [
+                        {
+                            "name": "SimulationTimeAuthority",
+                            "isActiveSelf": true,
+                            "components": [
+                                "UnityEngine.Transform",
+                                "FarmSim.Application.Simulation.Time.SimulationTimeAuthority",
+                                "FarmSim.Application.Simulation.Time.SimulationTimeAuthorityReadModelPublisher"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "SimulationTick",
+                    "isActiveSelf": true,
+                    "components": [
+                        "UnityEngine.Transform",
+                        "FarmSim.Application.Simulation.Tick.SimulationTickAuthority"
+                    ],
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

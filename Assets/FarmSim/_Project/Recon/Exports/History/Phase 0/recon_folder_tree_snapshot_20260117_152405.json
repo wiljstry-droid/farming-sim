@@ -1,0 +1,63 @@
+{
+    "reconVersion": "1.0",
+    "generatedUtc": "2026-01-17 15:24:05Z",
+    "root": {
+        "name": "Assets",
+        "children": [
+            {
+                "name": "FarmSim",
+                "children": [
+                    {
+                        "name": "_Application",
+                        "children": []
+                    },
+                    {
+                        "name": "_Project",
+                        "children": [
+                            {
+                                "name": "Editor",
+                                "children": []
+                            },
+                            {
+                                "name": "Recon",
+                                "children": [
+                                    {
+                                        "name": "Exports",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Settings",
+                "children": [
+                    {
+                        "name": "HDRPDefaultResources",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "TutorialInfo",
+                "children": [
+                    {
+                        "name": "Icons",
+                        "children": []
+                    },
+                    {
+                        "name": "Scripts",
+                        "children": [
+                            {
+                                "name": "Editor",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

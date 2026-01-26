@@ -1,0 +1,158 @@
+﻿{
+  "reconVersion": "1.0",
+  "generatedUtc": "2026-01-20 10:15:45Z",
+  "sceneName": "OutdoorsScene",
+  "scenePath": "Assets/OutdoorsScene.unity",
+  "roots": [
+    {
+      "name": "Main Camera",
+      "isActiveSelf": true,
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.Camera",
+        "UnityEngine.AudioListener",
+        "UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData"
+      ],
+      "children": []
+    },
+    {
+      "name": "Sun",
+      "isActiveSelf": true,
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.Light",
+        "UnityEngine.Rendering.HighDefinition.HDAdditionalLightData"
+      ],
+      "children": []
+    },
+    {
+      "name": "Sky and Fog Volume",
+      "isActiveSelf": true,
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.Rendering.Volume"
+      ],
+      "children": []
+    },
+    {
+      "name": "StaticLightingSky",
+      "isActiveSelf": true,
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.Rendering.HighDefinition.StaticLightingSky"
+      ],
+      "children": []
+    },
+    {
+      "name": "AppRoot",
+      "isActiveSelf": true,
+      "components": [
+        "UnityEngine.Transform"
+      ],
+      "children": [
+        {
+          "name": "BootstrapAuthority",
+          "isActiveSelf": true,
+          "components": [
+            "UnityEngine.Transform",
+            "FarmSim.Application.Bootstrap.BootstrapAuthority",
+            "FarmSim.Application.Bootstrap.Diagnostics.BootstrapDiagnostics"
+          ],
+          "children": []
+        },
+        {
+          "name": "Simulation",
+          "isActiveSelf": true,
+          "components": [
+            "UnityEngine.Transform"
+          ],
+          "children": [
+            {
+              "name": "SimulationTimeAuthority",
+              "isActiveSelf": true,
+              "components": [
+                "UnityEngine.Transform",
+                "FarmSim.Application.Simulation.Time.SimulationTimeAuthority",
+                "FarmSim.Application.Simulation.Time.SimulationTimeAuthorityReadModelPublisher"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SimulationTick",
+          "isActiveSelf": true,
+          "components": [
+            "UnityEngine.Transform",
+            "FarmSim.Application.Simulation.Tick.SimulationTickAuthority",
+            "FarmSim.Application.Simulation.Step.FirstSimulationStepExecutor",
+            "FarmSim.Application.Simulation.Step.SecondSimulationStepExecutor",
+            "FarmSim.Application.Simulation.Step.SoilMoistureBucketStepExecutor"
+          ],
+          "children": []
+        },
+        {
+          "name": "SimulationHUD",
+          "isActiveSelf": true,
+          "components": [
+            "UnityEngine.Transform"
+          ],
+          "children": [
+            {
+              "name": "Canvas",
+              "isActiveSelf": true,
+              "components": [
+                "UnityEngine.RectTransform",
+                "UnityEngine.Canvas",
+                "UnityEngine.UI.CanvasScaler",
+                "UnityEngine.UI.GraphicRaycaster"
+              ],
+              "children": [
+                {
+                  "name": "HudView",
+                  "isActiveSelf": true,
+                  "components": [
+                    "UnityEngine.RectTransform",
+                    "FarmSim.Application.Simulation.HUD.SimulationHudView"
+                  ],
+                  "children": [
+                    {
+                      "name": "SimTimeText",
+                      "isActiveSelf": true,
+                      "components": [
+                        "UnityEngine.RectTransform",
+                        "UnityEngine.CanvasRenderer",
+                        "TMPro.TextMeshProUGUI"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "name": "SoilBucketText",
+                      "isActiveSelf": true,
+                      "components": [
+                        "UnityEngine.RectTransform",
+                        "UnityEngine.CanvasRenderer",
+                        "TMPro.TextMeshProUGUI"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EventSystem",
+      "isActiveSelf": true,
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.EventSystems.EventSystem",
+        "UnityEngine.InputSystem.UI.InputSystemUIInputModule"
+      ],
+      "children": []
+    }
+  ]
+}

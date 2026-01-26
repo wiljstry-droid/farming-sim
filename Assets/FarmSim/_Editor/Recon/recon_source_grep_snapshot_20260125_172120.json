@@ -1,0 +1,186 @@
+﻿{
+  "generatedAtUtc": "2026-01-25T17:21:20.9393856Z",
+  "projectRoot": "C:/Users/wiljs/Desktop/Masekind/FarmSim",
+  "tool": "UnityEditor (FarmSim Recon)",
+  "scope": "Assets/FarmSim/_Application/",
+  "queries": [
+    {
+      "query": "TickExecSnap",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 37, "text": "            sb.Append(\"[TickExecSnap] tick=\").Append(snap.TickIndex)" }
+      ]
+    },
+    {
+      "query": "TickExec",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/FirstSimulationStepExecutor.cs", "line": 9, "text": "    public sealed class FirstSimulationStepExecutor : MonoBehaviour, ISimulationStep, ISimulationTickExecutor" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/SecondSimulationStepExecutor.cs", "line": 15, "text": "        ISimulationTickExecutor" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/SoilMoistureBucketStepExecutor.cs", "line": 11, "text": "        : MonoBehaviour, ISimulationStep, ISimulationTickExecutor" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/NullSimulationTickExecutor.cs", "line": 6, "text": "    public sealed class NullSimulationTickExecutor : ISimulationTickExecutor" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 31, "text": "        private ISimulationTickExecutor boundExecutor;" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 33, "text": "        public SimulationTickExecutionSnapshot LastExecutionSnapshot { get; private set; }" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 35, "text": "        public void BindExecutor(ISimulationTickExecutor executor)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 248, "text": "                new SimulationTickExecutionSnapshot(tickIndex, deltaSeconds, records);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Contracts/ISimulationTickExecutor.cs", "line": 9, "text": "    public interface ISimulationTickExecutor" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/DebugTickExecutor.cs", "line": 7, "text": "    public sealed class DebugTickExecutor : MonoBehaviour, ISimulationTickExecutor" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/DebugTickExecutor.cs", "line": 39, "text": "            Debug.Log($\"[TickExec] First tick executed. dt={snapshot.deltaSeconds:0.000}s\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 8, "text": "    /// Prints the most recent SimulationTickExecutionSnapshot." },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 11, "text": "    public sealed class SimulationTickExecutionSnapshotDebugProbe : MonoBehaviour" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 37, "text": "            sb.Append(\"[TickExecSnap] tick=\").Append(snap.TickIndex)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs", "line": 9, "text": "    public sealed class SimulationTickExecutionSnapshot" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs", "line": 16, "text": "        public SimulationTickExecutionSnapshot(" }
+      ]
+    },
+    {
+      "query": "ExecutionSnapshot",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 33, "text": "        public SimulationTickExecutionSnapshot LastExecutionSnapshot { get; private set; }" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 247, "text": "            LastExecutionSnapshot =" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 248, "text": "                new SimulationTickExecutionSnapshot(tickIndex, deltaSeconds, records);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 8, "text": "    /// Prints the most recent SimulationTickExecutionSnapshot." },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 11, "text": "    public sealed class SimulationTickExecutionSnapshotDebugProbe : MonoBehaviour" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 26, "text": "            var snap = authority.LastExecutionSnapshot;" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs", "line": 9, "text": "    public sealed class SimulationTickExecutionSnapshot" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs", "line": 16, "text": "        public SimulationTickExecutionSnapshot(" }
+      ]
+    },
+    {
+      "query": "SimulationTickExecutionSnapshot",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 33, "text": "        public SimulationTickExecutionSnapshot LastExecutionSnapshot { get; private set; }" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 248, "text": "                new SimulationTickExecutionSnapshot(tickIndex, deltaSeconds, records);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 8, "text": "    /// Prints the most recent SimulationTickExecutionSnapshot." },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 11, "text": "    public sealed class SimulationTickExecutionSnapshotDebugProbe : MonoBehaviour" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs", "line": 9, "text": "    public sealed class SimulationTickExecutionSnapshot" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs", "line": 16, "text": "        public SimulationTickExecutionSnapshot(" }
+      ]
+    },
+    {
+      "query": "SimulationTickAuthority",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 13, "text": "    public sealed class SimulationTickAuthority : MonoBehaviour" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 15, "text": "        public static SimulationTickAuthority Instance { get; private set; }" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Contracts/ISimulationStepGate.cs", "line": 7, "text": "    /// - Gate evaluation MUST be called only from SimulationTickAuthority during ordered step execution." },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Model/SimulationStepContext.cs", "line": 6, "text": "    /// Minimal immutable step context provided by the SimulationTickAuthority" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/DebugTickExecutor.cs", "line": 25, "text": "            var tick = FarmSim.Application.Simulation.Tick.SimulationTickAuthority.Instance;" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 22, "text": "            var authority = SimulationTickAuthority.Instance;" }
+      ]
+    },
+    {
+      "query": "SimulationStepOutcome",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 190, "text": "                                SimulationStepOutcome.Denied(reasonCode, reasonDetail)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 200, "text": "                    SimulationStepOutcome outcome;" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 208, "text": "                        outcome = SimulationStepOutcome.Failed(ex);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 212, "text": "                        outcome = SimulationStepOutcome.Failed(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 218, "text": "                    if (outcome.Kind == SimulationStepOutcomeKind.Failed)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 231, "text": "                            SimulationStepOutcome.Success()" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 240, "text": "                            SimulationStepOutcome.Failed(ex)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Contracts/ISimulationStepWithOutcome.cs", "line": 14, "text": "        SimulationStepOutcome ExecuteWithOutcome(ISimulationStepContext context);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepExecutionRecord.cs", "line": 12, "text": "        public SimulationStepOutcome Outcome { get; }" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepExecutionRecord.cs", "line": 16, "text": "            SimulationStepOutcome outcome)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 14, "text": "    public sealed class SimulationStepOutcome" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 16, "text": "        public SimulationStepOutcomeKind Kind { get; }" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 48, "text": "        private SimulationStepOutcome(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 49, "text": "            SimulationStepOutcomeKind kind," },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 64, "text": "        public static SimulationStepOutcome Success()" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 65, "text": "            => new SimulationStepOutcome(SimulationStepOutcomeKind.Success, null, null, null, null, 0);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 67, "text": "        public static SimulationStepOutcome Skipped(string reasonCode, string reasonDetail = null)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 68, "text": "            => new SimulationStepOutcome(SimulationStepOutcomeKind.Skipped, Safe(reasonCode), Safe(reasonDetail), null, null, 0);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 70, "text": "        public static SimulationStepOutcome Denied(string reasonCode, string reasonDetail = null)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 71, "text": "            => new SimulationStepOutcome(SimulationStepOutcomeKind.Denied, Safe(reasonCode), Safe(reasonDetail), null, null, 0);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 73, "text": "        public static SimulationStepOutcome Failed(Exception exception)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 76, "text": "                return new SimulationStepOutcome(SimulationStepOutcomeKind.Failed, null, null, \"UnknownException\", null, StableHash(\"UnknownException\", null));" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 81, "text": "            return new SimulationStepOutcome(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 82, "text": "                SimulationStepOutcomeKind.Failed," },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 136, "text": "                case SimulationStepOutcomeKind.Success:" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 139, "text": "                case SimulationStepOutcomeKind.Skipped:" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 142, "text": "                case SimulationStepOutcomeKind.Denied:" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 145, "text": "                case SimulationStepOutcomeKind.Failed:" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcomeKind.cs", "line": 7, "text": "    public enum SimulationStepOutcomeKind" }
+      ]
+    },
+    {
+      "query": "Denied(",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthority.cs", "line": 23, "text": "                return FieldPatchActionGateDecision.Denied(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthority.cs", "line": 30, "text": "                return FieldPatchActionGateDecision.Denied(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthority.cs", "line": 35, "text": "                return FieldPatchActionGateDecision.Denied(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthority.cs", "line": 41, "text": "                return FieldPatchActionGateDecision.Denied(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthority.cs", "line": 46, "text": "                return FieldPatchActionGateDecision.Denied(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityContract.cs", "line": 127, "text": "        public static FieldPatchActionGateDecision Denied(FieldPatchActionGateDecisionCode code, FieldPatchActionGateReasonFlags reasons, FieldVesselId currentOwner)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityContract.cs", "line": 130, "text": "        public static FieldPatchActionGateDecision Denied(FieldPatchActionGateDecisionCode code, FieldPatchActionGateReasonFlags reasons)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/NullFieldPatchActionGateAuthority.cs", "line": 20, "text": "            return FieldPatchActionGateDecision.Denied(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 190, "text": "                                SimulationStepOutcome.Denied(reasonCode, reasonDetail)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 70, "text": "        public static SimulationStepOutcome Denied(string reasonCode, string reasonDetail = null)" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs", "line": 143, "text": "                    return string.IsNullOrEmpty(ReasonCode) ? \"Denied\" : $\"Denied({ReasonCode})\";" }
+      ]
+    },
+    {
+      "query": "Debug.Log",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Bootstrap/Diagnostics/BootstrapDiagnostics.cs", "line": 18, "text": "                Debug.LogError(" },
+        { "file": "Assets/FarmSim/_Application/Bootstrap/Diagnostics/BootstrapDiagnostics.cs", "line": 31, "text": "                Debug.LogWarning(\"[BootstrapDiagnostics] Bootstrap not ready yet.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityProvider.cs", "line": 51, "text": "                Debug.LogError(\"[FieldPatchActionGateAuthorityProvider] assignmentReadOnlyProvider not assigned.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityProvider.cs", "line": 71, "text": "            Debug.Log(\"[FieldPatchActionGateAuthorityProvider] Bound gate authority to assignment read-only.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityProvider.cs", "line": 80, "text": "            Debug.LogWarning(message);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateConsumerProbe.cs", "line": 39, "text": "                Debug.LogError(\"[FieldPatchActionGateProbe] provider not assigned.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateConsumerProbe.cs", "line": 59, "text": "            Debug.Log(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityDebugProbe.cs", "line": 21, "text": "            Debug.Log(host != null" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityDebugProbe.cs", "line": 34, "text": "                Debug.Log(\"[FieldPatchAssign] DebugProbe Start: authority NOT found.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityDebugProbe.cs", "line": 45, "text": "            Debug.Log(hasOwner" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityDebugProbe.cs", "line": 52, "text": "            Debug.Log(hasOwner" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentConsumptionProbe.cs", "line": 26, "text": "                Debug.LogWarning(\"[FieldPatchAssignmentConsumptionProbe] Read-only provider not available.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentConsumptionProbe.cs", "line": 35, "text": "            Debug.Log(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyProvider.cs", "line": 33, "text": "                Debug.LogError(\"[FieldPatchAssignmentReadOnlyProvider] authorityHost not assigned.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyProvider.cs", "line": 40, "text": "                Debug.LogWarning(\"[FieldPatchAssignmentReadOnlyProvider] Authority not yet available. Will retry.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyProvider.cs", "line": 47, "text": "            Debug.Log(\"[FieldPatchAssignmentReadOnlyProvider] Bound read-only adapter to assignment authority.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchSoilBucketLink.cs", "line": 25, "text": "                Debug.LogError(\"[FieldPatchSoilBucketLink] Missing PatchAnchor reference.\", this);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchSoilBucketLink.cs", "line": 28, "text": "                Debug.LogError(\"[FieldPatchSoilBucketLink] Missing SoilMoistureBucketStepExecutor reference.\", this);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/FirstSimulationStepExecutor.cs", "line": 41, "text": "                Debug.Log(\"[FirstStep] First Tier-1 simulation step executed.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/FirstSimulationStepExecutor.cs", "line": 49, "text": "                Debug.Log(string.Format(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/SecondSimulationStepExecutor.cs", "line": 31, "text": "                Debug.Log(\"[SecondStep] Second Tier-1 simulation step executed.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/SoilMoistureBucketStepExecutor.cs", "line": 44, "text": "                Debug.Log(\"[SoilBucket] First soil moisture bucket tick executed.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/SoilMoistureBucketStepExecutor.cs", "line": 53, "text": "                Debug.Log(string.Format(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 96, "text": "                    Debug.LogError(\"[Tick] Missing SimulationTimeAuthority (ISimulationTimeDeltaSource). Tick will not advance.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 120, "text": "                    Debug.Log(\"[Tick] Blocked by SimulationTickGate (paused or gated).\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 130, "text": "                    Debug.Log(\"[Tick] No ISimulationTimeDeltaSource bound. Tick cannot run.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 138, "text": "                Debug.Log(\"[Tick] Coupled to TimeAuthority via ISimulationTimeDeltaSource (delta available).\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 148, "text": "                    Debug.Log(\"[Tick] DeltaTimeSeconds <= 0. Tick will not run until time advances.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeAuthorityReadModelPublisher.cs", "line": 17, "text": "            Debug.Log(source == null" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeDebugProbe.cs", "line": 17, "text": "            Debug.Log(publisher == null" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeDebugProbe.cs", "line": 36, "text": "            Debug.Log($\"[SimTime] UtcNow={rm.UtcNow:O} Speed={rm.SpeedMode}\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/DebugGateDeniedStep.cs", "line": 31, "text": "            Debug.LogError(\"[DebugGateDeniedStep] Execute ran but should have been denied.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepDiagnostics.cs", "line": 14, "text": "                Debug.LogWarning(\"[StepPipeline] ReportPipeline called with null pipeline.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepDiagnostics.cs", "line": 21, "text": "                Debug.LogWarning(\"[StepPipeline] Pipeline.OrderedSteps is null.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepDiagnostics.cs", "line": 42, "text": "            Debug.Log(sb.ToString());" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/DebugTickExecutor.cs", "line": 39, "text": "            Debug.Log($\"[TickExec] First tick executed. dt={snapshot.deltaSeconds:0.000}s\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs", "line": 49, "text": "            Debug.Log(sb.ToString());" }
+      ]
+    },
+    {
+      "query": "Debug.LogError",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Bootstrap/Diagnostics/BootstrapDiagnostics.cs", "line": 18, "text": "                Debug.LogError(" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityProvider.cs", "line": 51, "text": "                Debug.LogError(\"[FieldPatchActionGateAuthorityProvider] assignmentReadOnlyProvider not assigned.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateConsumerProbe.cs", "line": 39, "text": "                Debug.LogError(\"[FieldPatchActionGateProbe] provider not assigned.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyProvider.cs", "line": 33, "text": "                Debug.LogError(\"[FieldPatchAssignmentReadOnlyProvider] authorityHost not assigned.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchSoilBucketLink.cs", "line": 25, "text": "                Debug.LogError(\"[FieldPatchSoilBucketLink] Missing PatchAnchor reference.\", this);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchSoilBucketLink.cs", "line": 28, "text": "                Debug.LogError(\"[FieldPatchSoilBucketLink] Missing SoilMoistureBucketStepExecutor reference.\", this);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs", "line": 96, "text": "                    Debug.LogError(\"[Tick] Missing SimulationTimeAuthority (ISimulationTimeDeltaSource). Tick will not advance.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/DebugGateDeniedStep.cs", "line": 31, "text": "            Debug.LogError(\"[DebugGateDeniedStep] Execute ran but should have been denied.\");" }
+      ]
+    },
+    {
+      "query": "Debug.LogWarning",
+      "matches": [
+        { "file": "Assets/FarmSim/_Application/Bootstrap/Diagnostics/BootstrapDiagnostics.cs", "line": 31, "text": "                Debug.LogWarning(\"[BootstrapDiagnostics] Bootstrap not ready yet.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityProvider.cs", "line": 80, "text": "            Debug.LogWarning(message);" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentConsumptionProbe.cs", "line": 26, "text": "                Debug.LogWarning(\"[FieldPatchAssignmentConsumptionProbe] Read-only provider not available.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyProvider.cs", "line": 40, "text": "                Debug.LogWarning(\"[FieldPatchAssignmentReadOnlyProvider] Authority not yet available. Will retry.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepDiagnostics.cs", "line": 14, "text": "                Debug.LogWarning(\"[StepPipeline] ReportPipeline called with null pipeline.\");" },
+        { "file": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepDiagnostics.cs", "line": 21, "text": "                Debug.LogWarning(\"[StepPipeline] Pipeline.OrderedSteps is null.\");" }
+      ]
+    }
+  ]
+}
