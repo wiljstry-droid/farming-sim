@@ -2,11 +2,16 @@ namespace FarmSim.Application.Simulation.World
 {
     /// <summary>
     /// Tier-1 root: canonical land truth container (typed shell only).
-    /// Phase 30: no behavior, no mutation, no coupling, no serialization.
+    /// Phase 31: declares inert sub-root shells (no behavior, no mutation, no coupling, no serialization).
     /// </summary>
     public sealed class SimulationWorldLandStateRoot
     {
-        internal SimulationWorldLandStateRoot() { }
+        public SimulationWorldLandSubRoots SubRoots { get; }
+
+        internal SimulationWorldLandStateRoot()
+        {
+            SubRoots = SimulationWorldLandSubRoots.Default;
+        }
     }
 
     /// <summary>
