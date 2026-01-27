@@ -16,10 +16,17 @@ namespace FarmSim.Application.Simulation.World
 
     /// <summary>
     /// Tier-1 root: canonical environment truth container (typed shell only).
+    /// Phase 32: declares inert sub-root shells (no behavior, no mutation, no coupling, no serialization).
+    /// Environment → Weather, Climate, Light, Events
     /// </summary>
     public sealed class SimulationWorldEnvironmentStateRoot
     {
-        internal SimulationWorldEnvironmentStateRoot() { }
+        public SimulationWorldEnvironmentSubRoots SubRoots { get; }
+
+        internal SimulationWorldEnvironmentStateRoot()
+        {
+            SubRoots = SimulationWorldEnvironmentSubRoots.CreateEmpty();
+        }
     }
 
     /// <summary>
