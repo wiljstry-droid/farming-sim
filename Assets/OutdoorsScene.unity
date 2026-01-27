@@ -846,6 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38c98ce5d9e05d44aec28b8c76b0c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Tick.SimulationTickAuthority
+  strictOutcomeGovernanceLogs: 0
 --- !u!114 &1108713721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420065a4800612f4a9e2cff45511f9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Tick.Diagnostics.SimulationTickExecutionSnapshotDebugProbe
-  authoritySource: {fileID: 0}
+  printEveryTick: 1
 --- !u!114 &1108713726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,6 +1103,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.HUD.SimulationHudSoilBucketBinder
   view: {fileID: 1372944905}
   soilBucketExecutor: {fileID: 1108713724}
+--- !u!1 &1655391250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655391252}
+  - component: {fileID: 1655391251}
+  m_Layer: 0
+  m_Name: SimulationWorldStateAuthority
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1655391251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655391250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37e438ee45e2f54c8168a222b41cdb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.World.SimulationWorldStateAuthority
+--- !u!4 &1655391252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655391250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1746382438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,3 +1667,4 @@ SceneRoots:
   - {fileID: 2013410475}
   - {fileID: 1146849454}
   - {fileID: 1228245647}
+  - {fileID: 1655391252}
