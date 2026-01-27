@@ -1,45 +1,55 @@
-using UnityEngine;
-using FarmSim.Application.Simulation.Contracts;
-
 namespace FarmSim.Application.Simulation.World
 {
+    using FarmSim.Application.Simulation.World.Contracts;
+    using UnityEngine;
+
     /// <summary>
-    /// Tier-1 root authority for simulation world state.
-    ///
-    /// This authority declares ownership of canonical world truth containers.
-    /// It does not execute simulation logic, mutate data, or depend on Tick, UI, or Time.
+    /// Tier-1 authority declaring canonical world-state root containers.
+    /// Phase 30: roots are empty typed shells only (no behavior, no mutation).
     /// </summary>
-    public sealed class SimulationWorldStateAuthority
-        : MonoBehaviour, IAuthorityBindingContract
+    [DisallowMultipleComponent]
+    public sealed class SimulationWorldStateAuthority : MonoBehaviour, ISimulationWorldStateRootProvider
     {
         public static SimulationWorldStateAuthority Instance { get; private set; }
 
-        private bool _isBound;
+        public SimulationWorldLandStateRoot Land { get; private set; }
+        public SimulationWorldEnvironmentStateRoot Environment { get; private set; }
+        public SimulationWorldBiologyStateRoot Biology { get; private set; }
+        public SimulationWorldHumanStateRoot Human { get; private set; }
+        public SimulationWorldKnowledgeStateRoot Knowledge { get; private set; }
+
+        private bool initialized;
 
         private void Awake()
         {
-            if (Instance != null)
+            if (Instance != null && Instance != this)
             {
+                Debug.LogError("[WorldState] Duplicate SimulationWorldStateAuthority detected. Destroying the new instance.");
                 Destroy(gameObject);
                 return;
             }
 
             Instance = this;
+            InitializeRootsIfNeeded();
         }
 
-        /// <summary>
-        /// Bind is intentionally minimal.
-        /// Declares this authority as the canonical owner of world state roots.
-        /// No dependencies are required in Phase 29.
-        /// </summary>
-        public void Bind()
+        private void OnDestroy()
         {
-            AuthorityBindingGuard.RequireOnce(_isBound, nameof(SimulationWorldStateAuthority));
+            if (Instance == this) Instance = null;
+        }
 
-            // Phase 29: no dependencies to bind.
-            // This authority exists to define ownership boundaries only.
+        private void InitializeRootsIfNeeded()
+        {
+            if (initialized) return;
 
-            _isBound = true;
+            // Phase 30: typed shells only. No mutation logic, no simulation coupling.
+            Land = new SimulationWorldLandStateRoot();
+            Environment = new SimulationWorldEnvironmentStateRoot();
+            Biology = new SimulationWorldBiologyStateRoot();
+            Human = new SimulationWorldHumanStateRoot();
+            Knowledge = new SimulationWorldKnowledgeStateRoot();
+
+            initialized = true;
         }
     }
 }
