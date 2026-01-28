@@ -1,83 +1,178 @@
+#nullable enable
+
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace FarmSim.Project.Editor.Recon
+namespace FarmSim.Project.Editor
 {
     public static class ReconScriptIndexExporter
     {
-        private const string ReconVersion = "1.0";
+        private const string MenuPath = "FarmSim/Recon/Export Script Index";
 
-        [MenuItem("Tools/Recon/Export Script Index")]
+        [MenuItem(MenuPath)]
         public static void Export()
         {
-            var snapshot = new ScriptIndexSnapshot
+            try
             {
-                reconVersion = ReconVersion,
-                generatedUtc = DateTime.UtcNow.ToString("u"),
-                scripts = new List<ScriptEntry>()
+                string projectRoot = GetProjectRootAbsolute();
+                string outputDir = EnsureReconDocsFolder(projectRoot);
+
+                string timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
+                string fileName = $"recon_script_index_snapshot_{timestamp}.json";
+                string outputPath = Path.Combine(outputDir, fileName);
+
+                ScriptIndexSnapshot snapshot = BuildSnapshot(projectRoot);
+                string json = JsonUtility.ToJson(snapshot, true);
+
+                File.WriteAllText(outputPath, json);
+                Debug.Log($"[Recon] Script index snapshot written: {outputPath}");
+
+                AssetDatabase.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[Recon] Script index export failed: {ex}");
+            }
+        }
+
+        private static ScriptIndexSnapshot BuildSnapshot(string projectRootAbs)
+        {
+            var snap = new ScriptIndexSnapshot
+            {
+                schemaVersion = 1,
+                generatedUtc = DateTime.UtcNow.ToString("O"),
+                projectRoot = projectRootAbs,
+                scripts = new List<ScriptRecord>()
             };
 
-            var guids = AssetDatabase.FindAssets("t:MonoScript");
-            foreach (var guid in guids)
+            // Scan only Assets for scripts.
+            string assetsAbs = UnityEngine.Application.dataPath;
+
+            foreach (string file in Directory.EnumerateFiles(assetsAbs, "*.cs", SearchOption.AllDirectories))
             {
-                var path = AssetDatabase.GUIDToAssetPath(guid);
-                var script = AssetDatabase.LoadAssetAtPath<MonoScript>(path);
+                string rel = MakeRelativePath(projectRootAbs, file).Replace('\\', '/');
 
-                if (script == null)
-                    continue;
-
-                var type = script.GetClass();
-
-                snapshot.scripts.Add(new ScriptEntry
+                string text;
+                try { text = File.ReadAllText(file); }
+                catch
                 {
-                    name = script.name,
-                    path = path,
-                    @namespace = type?.Namespace ?? "<none>",
-                    className = type?.Name ?? "<unknown>"
+                    snap.scripts.Add(new ScriptRecord
+                    {
+                        path = rel,
+                        namespaces = Array.Empty<string>(),
+                        types = Array.Empty<string>()
+                    });
+                    continue;
+                }
+
+                string[] namespaces = ExtractNamespaces(text);
+                string[] types = ExtractTypes(text);
+
+                snap.scripts.Add(new ScriptRecord
+                {
+                    path = rel,
+                    namespaces = namespaces,
+                    types = types
                 });
             }
 
-            var json = JsonUtility.ToJson(snapshot, true);
+            return snap;
+        }
 
-            var exportDir = Path.Combine(
-                UnityEngine.Application.dataPath,
-                "FarmSim/_Project/Recon/Exports"
-            );
+        private static string[] ExtractNamespaces(string source)
+        {
+            var matches = Regex.Matches(
+                source,
+                @"^\s*namespace\s+([A-Za-z_][A-Za-z0-9_.]*)\s*",
+                RegexOptions.Multiline);
 
-            if (!Directory.Exists(exportDir))
+            var set = new HashSet<string>(StringComparer.Ordinal);
+            foreach (Match m in matches)
             {
-                Directory.CreateDirectory(exportDir);
+                if (m.Success && m.Groups.Count > 1)
+                    set.Add(m.Groups[1].Value.Trim());
             }
 
-            var fileName =
-                $"recon_script_index_snapshot_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json";
+            var list = new List<string>(set);
+            list.Sort(StringComparer.Ordinal);
+            return list.ToArray();
+        }
 
-            var fullPathOut = Path.Combine(exportDir, fileName);
+        private static string[] ExtractTypes(string source)
+        {
+            // Lightweight indexing: list any class/struct/interface/enum declarations.
+            var matches = Regex.Matches(
+                source,
+                @"^\s*(?:public|internal|protected|private|static|sealed|abstract|partial|\s)*\s*(class|struct|interface|enum)\s+([A-Za-z_][A-Za-z0-9_]*)\b",
+                RegexOptions.Multiline);
 
-            File.WriteAllText(fullPathOut, json);
+            var set = new HashSet<string>(StringComparer.Ordinal);
+            foreach (Match m in matches)
+            {
+                if (!m.Success || m.Groups.Count < 3) continue;
+                string kind = m.Groups[1].Value.Trim();
+                string name = m.Groups[2].Value.Trim();
+                set.Add($"{kind} {name}");
+            }
 
-            Debug.Log($"[Recon] Script index exported to: {fullPathOut}");
-            AssetDatabase.Refresh();
+            var list = new List<string>(set);
+            list.Sort(StringComparer.Ordinal);
+            return list.ToArray();
+        }
+
+        private static string GetProjectRootAbsolute()
+        {
+            // IMPORTANT: fully qualify UnityEngine.Application to avoid collisions.
+            string assetsPath = UnityEngine.Application.dataPath; // <root>/Assets
+            DirectoryInfo? parent = Directory.GetParent(assetsPath);
+            if (parent == null)
+                throw new InvalidOperationException("Unable to resolve project root from UnityEngine.Application.dataPath.");
+
+            return parent.FullName;
+        }
+
+        private static string EnsureReconDocsFolder(string projectRootAbs)
+        {
+            string outputDir = Path.Combine(projectRootAbs, "Recon Docs");
+            if (!Directory.Exists(outputDir))
+                Directory.CreateDirectory(outputDir);
+
+            return outputDir;
+        }
+
+        private static string MakeRelativePath(string rootAbs, string fullAbs)
+        {
+            Uri root = new Uri(EnsureTrailingSlash(rootAbs));
+            Uri full = new Uri(fullAbs);
+            return Uri.UnescapeDataString(root.MakeRelativeUri(full).ToString());
+        }
+
+        private static string EnsureTrailingSlash(string path)
+        {
+            if (path.EndsWith(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal)) return path;
+            if (path.EndsWith(Path.AltDirectorySeparatorChar.ToString(), StringComparison.Ordinal)) return path;
+            return path + Path.DirectorySeparatorChar;
         }
 
         [Serializable]
         private class ScriptIndexSnapshot
         {
-            public string reconVersion;
-            public string generatedUtc;
-            public List<ScriptEntry> scripts;
+            public int schemaVersion;
+            public string generatedUtc = "";
+            public string projectRoot = "";
+            public List<ScriptRecord> scripts = new List<ScriptRecord>();
         }
 
         [Serializable]
-        private class ScriptEntry
+        private class ScriptRecord
         {
-            public string name;
-            public string path;
-            public string @namespace;
-            public string className;
+            public string path = "";
+            public string[] namespaces = Array.Empty<string>();
+            public string[] types = Array.Empty<string>();
         }
     }
 }

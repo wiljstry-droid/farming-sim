@@ -1,15 +1,24 @@
-using UnityEditor;
+#nullable enable
 
-namespace FarmSim.Project.Editor.Recon
+using UnityEditor;
+using UnityEngine;
+
+namespace FarmSim.Project.Editor
 {
     public static class ReconExportAll
     {
-        [MenuItem("Tools/Recon/Export All")]
+        private const string MenuPath = "FarmSim/Recon/Export ALL";
+
+        [MenuItem(MenuPath)]
         public static void ExportAll()
         {
+            Debug.Log("[Recon] Export ALL started.");
+
             ReconFolderTreeExporter.Export();
             ReconScriptIndexExporter.Export();
             ReconSceneHierarchyExporter.Export();
+
+            Debug.Log("[Recon] Export ALL completed.");
         }
     }
 }

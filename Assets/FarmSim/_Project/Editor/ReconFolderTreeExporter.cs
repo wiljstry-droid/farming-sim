@@ -1,143 +1,151 @@
+#nullable enable
+
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace FarmSim.Project.Editor.Recon
+namespace FarmSim.Project.Editor
 {
     public static class ReconFolderTreeExporter
     {
-        private const string ReconVersion = "1.0";
+        private const string MenuPath = "FarmSim/Recon/Export Folder Tree";
 
-        [MenuItem("Tools/Recon/Export Folder Tree")]
+        [MenuItem(MenuPath)]
         public static void Export()
         {
-            var snapshot = new FolderTreeSnapshot
+            try
             {
-                reconVersion = ReconVersion,
-                generatedUtc = DateTime.UtcNow.ToString("u"),
-                root = BuildFolderNode("Assets")
-            };
+                string projectRoot = GetProjectRootAbsolute();
+                string outputDir = EnsureReconDocsFolder(projectRoot);
 
-            var exportDir = Path.Combine(
-                UnityEngine.Application.dataPath,
-                "FarmSim/_Project/Recon/Exports"
-            );
+                string timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
+                string fileName = $"recon_folder_tree_snapshot_{timestamp}.json";
+                string outputPath = Path.Combine(outputDir, fileName);
 
-            if (!Directory.Exists(exportDir))
-                Directory.CreateDirectory(exportDir);
+                FolderTreeSnapshot snapshot = BuildSnapshot(projectRoot);
+                string json = JsonUtility.ToJson(snapshot, true);
 
-            var fileName = $"recon_folder_tree_snapshot_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json";
-            var fullPathOut = Path.Combine(exportDir, fileName);
+                File.WriteAllText(outputPath, json);
+                Debug.Log($"[Recon] Folder tree snapshot written: {outputPath}");
 
-            // IMPORTANT: Avoid UnityEngine.JsonUtility depth limit by writing JSON manually.
-            var json = WriteSnapshotJson(snapshot);
-            File.WriteAllText(fullPathOut, json, Encoding.UTF8);
-
-            Debug.Log($"[Recon] Folder tree exported to: {fullPathOut}");
-            AssetDatabase.Refresh();
-        }
-
-        private static FolderNode BuildFolderNode(string assetFolderPath)
-        {
-            var node = new FolderNode
-            {
-                name = Path.GetFileName(assetFolderPath),
-                children = new List<FolderNode>()
-            };
-
-            var subfolders = AssetDatabase.GetSubFolders(assetFolderPath);
-            foreach (var sub in subfolders)
-            {
-                node.children.Add(BuildFolderNode(sub));
+                AssetDatabase.Refresh();
             }
-
-            return node;
-        }
-
-        // -------------------------
-        // Manual JSON writer (no depth limit)
-        // -------------------------
-
-        private static string WriteSnapshotJson(FolderTreeSnapshot s)
-        {
-            var sb = new StringBuilder(1024 * 32);
-
-            sb.Append("{\n");
-            WriteProp(sb, "reconVersion", s.reconVersion, 1); sb.Append(",\n");
-            WriteProp(sb, "generatedUtc", s.generatedUtc, 1); sb.Append(",\n");
-            Indent(sb, 1); sb.Append("\"root\": ");
-            WriteFolderNode(sb, s.root, 1);
-            sb.Append("\n}\n");
-
-            return sb.ToString();
-        }
-
-        private static void WriteFolderNode(StringBuilder sb, FolderNode n, int indent)
-        {
-            sb.Append("{\n");
-            WriteProp(sb, "name", n.name, indent + 1); sb.Append(",\n");
-
-            Indent(sb, indent + 1); sb.Append("\"children\": [");
-            if (n.children != null && n.children.Count > 0)
+            catch (Exception ex)
             {
-                sb.Append("\n");
-                for (int i = 0; i < n.children.Count; i++)
+                Debug.LogError($"[Recon] Folder tree export failed: {ex}");
+            }
+        }
+
+        private static FolderTreeSnapshot BuildSnapshot(string projectRootAbs)
+        {
+            var snap = new FolderTreeSnapshot
+            {
+                schemaVersion = 1,
+                generatedUtc = DateTime.UtcNow.ToString("O"),
+                projectRoot = projectRootAbs,
+                entries = new List<FolderTreeEntry>()
+            };
+
+            // Exclude noisy / non-authoritative directories.
+            var excludedRootSegments = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ".git",
+                "Library",
+                "Temp",
+                "Obj",
+                "Logs",
+                "UserSettings",
+                "Build",
+                "Builds",
+                "Recon Docs" // prevent snapshot self-inflation
+            };
+
+            foreach (string path in Directory.EnumerateFileSystemEntries(projectRootAbs, "*", SearchOption.AllDirectories))
+            {
+                string rel = MakeRelativePath(projectRootAbs, path).Replace('\\', '/');
+
+                string rootSeg = GetFirstSegment(rel);
+                if (!string.IsNullOrEmpty(rootSeg) && excludedRootSegments.Contains(rootSeg))
+                    continue;
+
+                bool isDir = Directory.Exists(path);
+                long bytes = 0;
+
+                if (!isDir)
                 {
-                    Indent(sb, indent + 2);
-                    WriteFolderNode(sb, n.children[i], indent + 2);
-                    if (i < n.children.Count - 1) sb.Append(",\n");
-                    else sb.Append("\n");
+                    try { bytes = new FileInfo(path).Length; }
+                    catch { bytes = 0; }
                 }
-                Indent(sb, indent + 1); sb.Append("]");
+
+                snap.entries.Add(new FolderTreeEntry
+                {
+                    relativePath = rel,
+                    entryType = isDir ? "dir" : "file",
+                    bytes = bytes
+                });
             }
-            else
-            {
-                sb.Append("]");
-            }
 
-            sb.Append("\n");
-            Indent(sb, indent); sb.Append("}");
+            return snap;
         }
 
-        private static void WriteProp(StringBuilder sb, string key, string value, int indent)
+        private static string GetProjectRootAbsolute()
         {
-            Indent(sb, indent);
-            sb.Append("\"").Append(Escape(key)).Append("\": ");
-            sb.Append("\"").Append(Escape(value ?? "")).Append("\"");
+            // IMPORTANT: fully qualify UnityEngine.Application to avoid namespace collisions.
+            string assetsPath = UnityEngine.Application.dataPath; // <root>/Assets
+            DirectoryInfo? parent = Directory.GetParent(assetsPath);
+            if (parent == null)
+                throw new InvalidOperationException("Unable to resolve project root from UnityEngine.Application.dataPath.");
+
+            return parent.FullName;
         }
 
-        private static void Indent(StringBuilder sb, int n)
+        private static string EnsureReconDocsFolder(string projectRootAbs)
         {
-            for (int i = 0; i < n; i++) sb.Append("  ");
+            string outputDir = Path.Combine(projectRootAbs, "Recon Docs");
+            if (!Directory.Exists(outputDir))
+                Directory.CreateDirectory(outputDir);
+
+            return outputDir;
         }
 
-        private static string Escape(string s)
+        private static string MakeRelativePath(string rootAbs, string fullAbs)
         {
-            if (string.IsNullOrEmpty(s)) return "";
-            return s
-                .Replace("\\", "\\\\")
-                .Replace("\"", "\\\"")
-                .Replace("\r", "\\r")
-                .Replace("\n", "\\n")
-                .Replace("\t", "\\t");
+            Uri root = new Uri(EnsureTrailingSlash(rootAbs));
+            Uri full = new Uri(fullAbs);
+            return Uri.UnescapeDataString(root.MakeRelativeUri(full).ToString());
+        }
+
+        private static string EnsureTrailingSlash(string path)
+        {
+            if (path.EndsWith(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal)) return path;
+            if (path.EndsWith(Path.AltDirectorySeparatorChar.ToString(), StringComparison.Ordinal)) return path;
+            return path + Path.DirectorySeparatorChar;
+        }
+
+        private static string GetFirstSegment(string relPath)
+        {
+            relPath = relPath.Replace('\\', '/').TrimStart('/');
+            int idx = relPath.IndexOf('/');
+            return idx < 0 ? relPath : relPath.Substring(0, idx);
         }
 
         [Serializable]
         private class FolderTreeSnapshot
         {
-            public string reconVersion;
-            public string generatedUtc;
-            public FolderNode root;
+            public int schemaVersion;
+            public string generatedUtc = "";
+            public string projectRoot = "";
+            public List<FolderTreeEntry> entries = new List<FolderTreeEntry>();
         }
 
         [Serializable]
-        private class FolderNode
+        private class FolderTreeEntry
         {
-            public string name;
-            public List<FolderNode> children;
+            public string relativePath = "";
+            public string entryType = ""; // "dir" | "file"
+            public long bytes;
         }
     }
 }
