@@ -1,16 +1,17 @@
+using FarmSim.Application.Simulation.World.Model.Biology;
+using FarmSim.Application.Simulation.World.Model.Environment;
+
 namespace FarmSim.Application.Simulation.World.Contracts
 {
-    using FarmSim.Application.Simulation.World;
-
     /// <summary>
-    /// Declares canonical Tier-1 world-state roots.
-    /// Read-only access only. No mutation contracts in Phase 30.
+    /// Provides access to Tier-1 simulation world state roots.
+    /// Structural contract only — no logic, no ticking, no mutation.
     /// </summary>
     public interface ISimulationWorldStateRootProvider
     {
         SimulationWorldLandStateRoot Land { get; }
-        SimulationWorldEnvironmentStateRoot Environment { get; }
         SimulationWorldBiologyStateRoot Biology { get; }
+        SimulationWorldEnvironmentStateRoot Environment { get; }
         SimulationWorldHumanStateRoot Human { get; }
         SimulationWorldKnowledgeStateRoot Knowledge { get; }
     }

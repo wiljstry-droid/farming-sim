@@ -1,55 +1,59 @@
+using FarmSim.Application.Simulation.World.Model.Biology;
+using FarmSim.Application.Simulation.World.Model.Environment;
+
 namespace FarmSim.Application.Simulation.World
 {
     /// <summary>
-    /// Tier-1 root: canonical land truth container (typed shell only).
-    /// Phase 31: declares inert sub-root shells (no behavior, no mutation, no coupling, no serialization).
+    /// Tier-1 world state aggregate roots (structural shells only).
+    /// No logic, ticking, mutation, diagnostics, or exposure.
     /// </summary>
+    public sealed class SimulationWorldStateRoots
+    {
+        public SimulationWorldLandStateRoot Land { get; }
+        public SimulationWorldBiologyStateRoot Biology { get; }
+        public SimulationWorldEnvironmentStateRoot Environment { get; }
+        public SimulationWorldHumanStateRoot Human { get; }
+        public SimulationWorldKnowledgeStateRoot Knowledge { get; }
+
+        // Default constructor for structural aggregation (no logic, no ticking).
+        public SimulationWorldStateRoots()
+            : this(
+                new SimulationWorldLandStateRoot(),
+                new SimulationWorldBiologyStateRoot(),
+                new SimulationWorldEnvironmentStateRoot(),
+                new SimulationWorldHumanStateRoot(),
+                new SimulationWorldKnowledgeStateRoot())
+        {
+        }
+
+        public SimulationWorldStateRoots(
+            SimulationWorldLandStateRoot land,
+            SimulationWorldBiologyStateRoot biology,
+            SimulationWorldEnvironmentStateRoot environment,
+            SimulationWorldHumanStateRoot human,
+            SimulationWorldKnowledgeStateRoot knowledge)
+        {
+            Land = land;
+            Biology = biology;
+            Environment = environment;
+            Human = human;
+            Knowledge = knowledge;
+        }
+    }
+
+    // Structural shells (Tier-1 domains). No logic/ticking/mutation/exposure here.
     public sealed class SimulationWorldLandStateRoot
     {
-        public SimulationWorldLandSubRoots SubRoots { get; }
-
-        internal SimulationWorldLandStateRoot()
-        {
-            SubRoots = SimulationWorldLandSubRoots.Default;
-        }
+        public SimulationWorldLandStateRoot() { }
     }
 
-    /// <summary>
-    /// Tier-1 root: canonical environment truth container (typed shell only).
-    /// Phase 32: declares inert sub-root shells (no behavior, no mutation, no coupling, no serialization).
-    /// Environment → Weather, Climate, Light, Events
-    /// </summary>
-    public sealed class SimulationWorldEnvironmentStateRoot
-    {
-        public SimulationWorldEnvironmentSubRoots SubRoots { get; }
-
-        internal SimulationWorldEnvironmentStateRoot()
-        {
-            SubRoots = SimulationWorldEnvironmentSubRoots.CreateEmpty();
-        }
-    }
-
-    /// <summary>
-    /// Tier-1 root: canonical biology truth container (typed shell only).
-    /// </summary>
-    public sealed class SimulationWorldBiologyStateRoot
-    {
-        internal SimulationWorldBiologyStateRoot() { }
-    }
-
-    /// <summary>
-    /// Tier-1 root: canonical human truth container (typed shell only).
-    /// </summary>
     public sealed class SimulationWorldHumanStateRoot
     {
-        internal SimulationWorldHumanStateRoot() { }
+        public SimulationWorldHumanStateRoot() { }
     }
 
-    /// <summary>
-    /// Tier-1 root: canonical knowledge truth container (typed shell only).
-    /// </summary>
     public sealed class SimulationWorldKnowledgeStateRoot
     {
-        internal SimulationWorldKnowledgeStateRoot() { }
+        public SimulationWorldKnowledgeStateRoot() { }
     }
 }
