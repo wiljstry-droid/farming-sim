@@ -1,0 +1,1500 @@
+{
+    "schemaVersion": 1,
+    "generatedUtc": "2026-01-28T05:11:47.6566687Z",
+    "projectRoot": "C:\\Users\\wiljs\\Desktop\\Masekind\\FarmSim",
+    "scripts": [
+        {
+            "path": "Assets/TutorialInfo/Scripts/Readme.cs",
+            "namespaces": [],
+            "types": [
+                "class Readme",
+                "class Section"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Bootstrap/BootstrapAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Bootstrap"
+            ],
+            "types": [
+                "class BootstrapAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Editor/Recon/ReconSourceGrepSnapshotGenerator.cs",
+            "namespaces": [
+                "FarmSim.Editor.Recon"
+            ],
+            "types": [
+                "class ReconSourceGrepSnapshotGenerator"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Project/Editor/ReconExportAll.cs",
+            "namespaces": [
+                "FarmSim.Project.Editor"
+            ],
+            "types": [
+                "class ReconExportAll"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Project/Editor/ReconFolderTreeExporter.cs",
+            "namespaces": [
+                "FarmSim.Project.Editor"
+            ],
+            "types": [
+                "class FolderTreeEntry",
+                "class FolderTreeSnapshot",
+                "class ReconFolderTreeExporter"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Project/Editor/ReconSceneHierarchyExporter.cs",
+            "namespaces": [
+                "FarmSim.Project.Editor"
+            ],
+            "types": [
+                "class GameObjectNode",
+                "class ReconSceneHierarchyExporter",
+                "class SceneHierarchySnapshot"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Project/Editor/ReconScriptIndexExporter.cs",
+            "namespaces": [
+                "FarmSim.Project.Editor"
+            ],
+            "types": [
+                "class ReconScriptIndexExporter",
+                "class ScriptIndexSnapshot",
+                "class ScriptRecord"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class Benchmark01"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class Benchmark01_UGUI"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class Benchmark02"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class Benchmark03",
+                "enum BenchmarkType"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class Benchmark04"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class CameraController",
+                "enum CameraModes"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs",
+            "namespaces": [],
+            "types": [
+                "class ChatController"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/DropdownSample.cs",
+            "namespaces": [],
+            "types": [
+                "class DropdownSample"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs",
+            "namespaces": [],
+            "types": [
+                "class EnvMapAnimator"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class ObjectSpin",
+                "enum MotionType"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class ShaderPropAnimator"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class SimpleScript"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class SkewTextExample"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TeleType"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TextConsoleSimulator"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TextMeshProFloatingText"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TextMeshSpawner"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMPro_InstructionOverlay",
+                "enum FpsCounterAnchorPositions"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs",
+            "namespaces": [
+                "TMPro"
+            ],
+            "types": [
+                "class TMP_DigitValidator"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_ExampleScript_01",
+                "enum objectType"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_FrameRateCounter",
+                "enum FpsCounterAnchorPositions"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_PhoneNumberValidator.cs",
+            "namespaces": [
+                "TMPro"
+            ],
+            "types": [
+                "class TMP_PhoneNumberValidator"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_TextEventCheck"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs",
+            "namespaces": [
+                "TMPro"
+            ],
+            "types": [
+                "class CharacterSelectionEvent",
+                "class LineSelectionEvent",
+                "class LinkSelectionEvent",
+                "class SpriteSelectionEvent",
+                "class TMP_TextEventHandler",
+                "class WordSelectionEvent"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_TextInfoDebugTool"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_TextSelector_A"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_TextSelector_B"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class TMP_UiFrameRateCounter",
+                "enum FpsCounterAnchorPositions"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class VertexColorCycler"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class VertexJitter",
+                "struct VertexAnim"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class VertexShakeA"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class VertexShakeB"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class VertexZoom"
+            ]
+        },
+        {
+            "path": "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs",
+            "namespaces": [
+                "TMPro.Examples"
+            ],
+            "types": [
+                "class WarpTextExample"
+            ]
+        },
+        {
+            "path": "Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs",
+            "namespaces": [],
+            "types": [
+                "class ReadmeEditor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Bootstrap/Contracts/IBootstrapContract.cs",
+            "namespaces": [
+                "FarmSim.Application.Bootstrap.Contracts"
+            ],
+            "types": [
+                "interface IBootstrapContract"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Bootstrap/Diagnostics/BootstrapDiagnostics.cs",
+            "namespaces": [
+                "FarmSim.Application.Bootstrap.Diagnostics"
+            ],
+            "types": [
+                "class BootstrapDiagnostics"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/AuthorityBindingException.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "class AuthorityBindingException"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/AuthorityBindingGuard.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "class AuthorityBindingGuard"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/AuthorityBindingReport.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "class AuthorityBindingReport"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/AuthorityDependency.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "class AuthorityDependency"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/IAuthorityBinder.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "interface IAuthorityBinder"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/IAuthorityBindingContracts.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "interface IAuthorityBindingContract"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Contracts/IAuthorityDependency.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Contracts"
+            ],
+            "types": [
+                "interface IAuthorityDependency"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchActionGateAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityContract.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "enum FieldPatchActionGateDecisionCode",
+                "enum FieldPatchActionGateReasonFlags",
+                "enum FieldPatchActionKind",
+                "interface IFieldPatchActionGateAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateAuthorityProvider.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchActionGateAuthorityProvider"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchActionGateConsumerProbe.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchActionGateConsumerProbe"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAnchor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAnchor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityContract.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "interface IFieldPatchAssignmentAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityDebugProbe.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentAuthorityDebugProbe"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentAuthorityHost.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentAuthorityHost"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentConsumptionContract.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentConsumption",
+                "enum FieldPatchAssignmentEligibilityReason",
+                "interface IFieldPatchAssignmentReadOnly"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentConsumptionProbe.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentConsumptionProbe"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyAdapter.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentReadOnlyAdapter"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchAssignmentReadOnlyProvider.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchAssignmentReadOnlyProvider"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/FieldPatchSoilBucketLink.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class FieldPatchSoilBucketLink"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/NullFieldPatchActionGateAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field"
+            ],
+            "types": [
+                "class NullFieldPatchActionGateAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/HUD/SimulationHudSoilBucketBinder.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.HUD"
+            ],
+            "types": [
+                "class SimulationHudSoilBucketBinder"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/HUD/SimulationHudTimeBinder.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.HUD"
+            ],
+            "types": [
+                "class SimulationHudTimeBinder"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/HUD/SimulationHudView.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.HUD"
+            ],
+            "types": [
+                "class SimulationHudView"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/FirstSimulationStepCore.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step"
+            ],
+            "types": [
+                "class FirstSimulationStepCore"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/FirstSimulationStepExecutor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step"
+            ],
+            "types": [
+                "class FirstSimulationStepExecutor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/SecondSimulationStepExecutor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step"
+            ],
+            "types": [
+                "class SecondSimulationStepExecutor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/SoilMoistureBucketCore.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step"
+            ],
+            "types": [
+                "class SoilMoistureBucketCore"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/SoilMoistureBucketStepExecutor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step"
+            ],
+            "types": [
+                "class SoilMoistureBucketStepExecutor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/NullSimulationTickExecutor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick"
+            ],
+            "types": [
+                "class NullSimulationTickExecutor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/NullSimulationTickSource.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick"
+            ],
+            "types": [
+                "class NullSimulationTickSource"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/SimulationTickAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick"
+            ],
+            "types": [
+                "class SimulationTickAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/SimulationtickGate.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick"
+            ],
+            "types": [
+                "class SimulationTickGate"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/UnityFrameTickSource.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick"
+            ],
+            "types": [
+                "class UnityFrameTickSource"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/SimulationClock.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time"
+            ],
+            "types": [
+                "class SimulationClock"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/SimulationSpeedMode.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time"
+            ],
+            "types": [
+                "enum SimulationSpeedMode"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time"
+            ],
+            "types": [
+                "class SimulationTimeAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeAuthorityReadModelPublisher.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time"
+            ],
+            "types": [
+                "class SimulationTimeAuthorityReadModelPublisher"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeDebugProbe.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time"
+            ],
+            "types": [
+                "class SimulationTimeDebugProbe"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/SimulationTimeReadModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time"
+            ],
+            "types": [
+                "class SimulationTimeReadModel"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/SimulationWorldStateAuthority.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": [
+                "class SimulationWorldStateAuthority"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Contracts/FieldPatchActionExecutionContracts.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Contracts"
+            ],
+            "types": [
+                "class FieldPatchActionExecutionContracts",
+                "interface IActionExecutionContext",
+                "interface IActionExecutionOutcome",
+                "interface IActionExecutionPlan",
+                "interface IActionExecutor",
+                "interface IActionGateEvaluator",
+                "interface IActionPlanBuilder"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Contracts/IFieldPatchActionExecutionPlanner.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Contracts"
+            ],
+            "types": [
+                "interface IFieldPatchActionExecutionPlanner"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanBuilderModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionExecutionPlanBuilderModel"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanBuildInputsModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class BuildInputs",
+                "class FieldPatchActionExecutionPlanBuildInputsModel"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanFactoryModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionExecutionPlanFactoryModel"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class ExecutionPlan",
+                "class ExecutionPreconditionsSnapshot",
+                "class FieldPatchActionExecutionPlanModel",
+                "class Freeze",
+                "class PlanScope",
+                "enum PlanScopeSource"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanReadModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionExecutionPlanReadModel",
+                "class ReadModel"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanScopeResolutionModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionExecutionPlanScopeResolutionModel",
+                "class Freeze",
+                "class ScopeResolution",
+                "enum ResolutionKind"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionExecutionPlanTraceModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionExecutionPlanTraceModel"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionGateEvaluationResultModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class EvaluationResult",
+                "class FieldPatchActionGateEvaluationResultModel",
+                "enum Decision",
+                "enum ReasonFlags"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentAuditModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionIntentAuditModel",
+                "class IntentAuditBuffer",
+                "class IntentAuditReadOnly",
+                "class IntentAuditSnapshot"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentBatchModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentDocumentation.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionIntentDocumentation"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentFactory.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionIntentFactory"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentGateBridgeData.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "enum FieldPatchActionPayloadKind",
+                "enum FieldPatchActionSourceKind",
+                "enum FieldPatchActionTargetKind",
+                "enum HarvestIntentKind",
+                "enum ObserveIntentKind",
+                "enum SoilOperationIntentKind"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentValidationData.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "enum FieldPatchActionIntentValidationCode",
+                "enum FieldPatchActionIntentValidationFlags"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionIntentValidator.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionIntentValidator"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchActionPlanningContextModel.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchActionPlanningContextModel",
+                "class PlanningContext"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchAssignmentDataFactory.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchAssignmentDataFactory"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchAssignmentIndex.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchAssignmentIndex"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchAssignmentRecord.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchAssignmentSnapshot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchAssignmentSnapshot"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldPatchAssignmentTimeline.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldPatchVesselAssignmentTimeline",
+                "class FieldVesselPatchAssignmentTimeline"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldVesselData.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldVesselData"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldVesselFactory.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class FieldVesselFactory"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldVesselId.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/FieldVesselLifecycleState.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "enum FieldVesselLifecycleState"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Field/Model/Phase19_ActionReasoningAndOutcomeModels_Anchor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Field.Model"
+            ],
+            "types": [
+                "class Phase19_ActionReasoningAndOutcomeModels_Anchor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Contracts/ISimulationStep.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Contracts"
+            ],
+            "types": [
+                "interface ISimulationStep"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Contracts/ISimulationStepContext.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Contracts"
+            ],
+            "types": [
+                "interface ISimulationStepContext"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Contracts/ISimulationStepGate.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Contracts"
+            ],
+            "types": [
+                "interface ISimulationStepGate"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Contracts/ISimulationStepWithOutcome.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Contracts"
+            ],
+            "types": [
+                "interface ISimulationStepWithOutcome"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Contracts/SimulationStepOrderAttribute.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Contracts"
+            ],
+            "types": [
+                "class SimulationStepOrderAttribute"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/DebugGateDeniedStep.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Diagnostics"
+            ],
+            "types": [
+                "class DebugGateDeniedStep"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepDiagnostics.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Diagnostics"
+            ],
+            "types": [
+                "class SimulationStepDiagnostics"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Diagnostics/SimulationStepPipelineDiagnostics.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Diagnostics"
+            ],
+            "types": [
+                "class SimulationStepPipelineDiagnostics"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Model/FirstSimulationStepState.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Model"
+            ],
+            "types": [
+                "class FirstSimulationStepState"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Model/SimulationStepContext.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Model"
+            ],
+            "types": [
+                "class SimulationStepContext"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Model/SimulationStepGateReasonCodes.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Model"
+            ],
+            "types": [
+                "class SimulationStepGateReasonCodes"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Model/SoilMoistureBucketState.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Model"
+            ],
+            "types": [
+                "class SoilMoistureBucketState"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/ISimulationStepPipeline.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline"
+            ],
+            "types": [
+                "interface ISimulationStepPipeline"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/ISimulationStepRegistry.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline"
+            ],
+            "types": [
+                "interface ISimulationStepRegistry"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/OrderedSimulationStepPipeline.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline"
+            ],
+            "types": [
+                "class OrderedSimulationStepPipeline"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/OrderedSimulationStepRegistry.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline"
+            ],
+            "types": [
+                "class OrderedSimulationStepRegistry"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Contracts/ISimulationTickExecutor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Contracts"
+            ],
+            "types": [
+                "interface ISimulationTickExecutor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Contracts/ISimulationTickSource.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Contracts"
+            ],
+            "types": [
+                "interface ISimulationTickSource"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/DebugTickExecutor.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Diagnostics"
+            ],
+            "types": [
+                "class DebugTickExecutor"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationStepOutcomeGovernanceDebugProbe.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Diagnostics"
+            ],
+            "types": [
+                "class SimulationStepOutcomeGovernanceDebugProbe"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Diagnostics/SimulationTickExecutionSnapshotDebugProbe.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Diagnostics"
+            ],
+            "types": [
+                "class SimulationTickExecutionSnapshotDebugProbe"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepExecutionRecord.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model"
+            ],
+            "types": [
+                "class SimulationStepExecutionRecord"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepExecutionStatus.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model"
+            ],
+            "types": [
+                "enum SimulationStepExecutionStatus"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcome.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model"
+            ],
+            "types": [
+                "class SimulationStepOutcome"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcomeGovernance.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model.Governance"
+            ],
+            "types": [
+                "class SimulationStepOutcomeGovernance"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationStepOutcomeKind.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model"
+            ],
+            "types": [
+                "enum SimulationStepOutcomeKind"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickExecutionSnapshot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model"
+            ],
+            "types": [
+                "class SimulationTickExecutionSnapshot"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/SimulationTickSnapshot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Time/Contracts/ISimulationTimeDeltaSource.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Time.Contracts"
+            ],
+            "types": [
+                "interface ISimulationTimeDeltaSource"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Contracts/ISimulationWorldStateRootProvider.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World.Contracts"
+            ],
+            "types": [
+                "interface ISimulationWorldStateRootProvider"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SimulationWorldStateRoots.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": [
+                "class SimulationWorldBiologyStateRoot",
+                "class SimulationWorldEnvironmentStateRoot",
+                "class SimulationWorldHumanStateRoot",
+                "class SimulationWorldKnowledgeStateRoot",
+                "class SimulationWorldLandStateRoot"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/Contracts/ISimulationStepOrderingPolicy.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline.Contracts"
+            ],
+            "types": [
+                "interface ISimulationStepOrderingPolicy"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/Contracts/LexicographicStepIdOrderingPolicy.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline.Contracts"
+            ],
+            "types": [
+                "class LexicographicStepIdOrderingPolicy"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/Contracts/SimulationStepPipelineContractValidator.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline.Contracts"
+            ],
+            "types": [
+                "class SimulationStepPipelineContractValidator"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/Contracts/SimulationStepPipelineContractViolation.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline.Contracts"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Step/Pipeline/Contracts/SimulationStepPipelineContractViolationKind.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Step.Pipeline.Contracts"
+            ],
+            "types": [
+                "enum SimulationStepPipelineContractViolationKind"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/Governance/SimulationStepOutcomeGovernanceViolation.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model.Governance"
+            ],
+            "types": [
+                "class SimulationStepOutcomeGovernanceViolation"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/Governance/SimulationStepOutcomeGovernanceViolationKind.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model.Governance"
+            ],
+            "types": [
+                "enum SimulationStepOutcomeGovernanceViolationKind"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/Tick/Model/Governance/SimulationStepOutcomeReadonCodePolicy.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.Tick.Model.Governance"
+            ],
+            "types": [
+                "class SimulationStepOutcomeReasonCodePolicy"
+            ]
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldEnvironmentClimateStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldEnvironmentEventsStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldEnvironmentLightStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldEnvironmentSubRoots.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldEnvironmentWeatherStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldLandFieldsStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldLandHistoryStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldLandHydrologyStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldLandSoilStateRoot.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        },
+        {
+            "path": "Assets/FarmSim/_Application/Simulation/World/Model/SubRoots/SimulationWorldLandSubRoots.cs",
+            "namespaces": [
+                "FarmSim.Application.Simulation.World"
+            ],
+            "types": []
+        }
+    ]
+}
