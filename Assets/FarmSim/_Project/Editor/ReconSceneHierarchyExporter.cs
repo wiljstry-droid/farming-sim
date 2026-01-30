@@ -1,9 +1,8 @@
-#nullable enable
-
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,141 +10,145 @@ namespace FarmSim.Project.Editor
 {
     public static class ReconSceneHierarchyExporter
     {
-        private const string MenuPath = "FarmSim/Recon/Export Scene Hierarchy";
+        private const int SchemaVersion = 1;
 
-        [MenuItem(MenuPath)]
         public static void Export()
         {
-            try
+            Scene scene = EditorSceneManager.GetActiveScene();
+
+            // IMPORTANT: Fully qualify UnityEngine.Application to avoid collision with FarmSim.Application namespace.
+            string projectRoot = Directory.GetParent(UnityEngine.Application.dataPath)?.FullName;
+            if (string.IsNullOrWhiteSpace(projectRoot))
             {
-                string projectRoot = GetProjectRootAbsolute();
-                string outputDir = EnsureReconDocsFolder(projectRoot);
-
-                string timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
-                string fileName = $"recon_scene_hierarchy_snapshot_{timestamp}.json";
-                string outputPath = Path.Combine(outputDir, fileName);
-
-                SceneHierarchySnapshot snapshot = BuildSnapshot();
-                string json = JsonUtility.ToJson(snapshot, true);
-
-                File.WriteAllText(outputPath, json);
-                Debug.Log($"[Recon] Scene hierarchy snapshot written: {outputPath}");
-
-                AssetDatabase.Refresh();
+                UnityEngine.Debug.LogError("ReconSceneHierarchyExporter: Could not resolve project root from UnityEngine.Application.dataPath.");
+                return;
             }
-            catch (Exception ex)
+
+            string reconDir = Path.Combine(projectRoot, "Recon");
+            Directory.CreateDirectory(reconDir);
+
+            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd_HHmmss");
+            string fileName = $"recon_scene_hierarchy_snapshot_{timestamp}.json";
+            string fullPath = Path.Combine(reconDir, fileName);
+
+            var sb = new StringBuilder(1024 * 1024);
+
+            sb.Append("{\n");
+            sb.Append("  \"schemaVersion\": ").Append(SchemaVersion).Append(",\n");
+            sb.Append("  \"generatedUtc\": \"").Append(JsonEscape(DateTime.UtcNow.ToString("o"))).Append("\",\n");
+            sb.Append("  \"activeSceneName\": \"").Append(JsonEscape(scene.name)).Append("\",\n");
+            sb.Append("  \"activeScenePath\": \"").Append(JsonEscape(scene.path)).Append("\",\n");
+            sb.Append("  \"roots\": [\n");
+
+            GameObject[] roots = scene.GetRootGameObjects();
+            for (int i = 0; i < roots.Length; i++)
             {
-                Debug.LogError($"[Recon] Scene hierarchy export failed: {ex}");
+                GameObject root = roots[i];
+                WriteNode(sb, root, "/" + root.name, 2);
+
+                if (i < roots.Length - 1) sb.Append(",\n");
+                else sb.Append("\n");
             }
+
+            sb.Append("  ]\n");
+            sb.Append("}\n");
+
+            File.WriteAllText(fullPath, sb.ToString(), new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+            AssetDatabase.Refresh();
+
+            UnityEngine.Debug.Log($"ReconSceneHierarchyExporter: Wrote {fileName}");
         }
 
-        private static SceneHierarchySnapshot BuildSnapshot()
+        private static void WriteNode(StringBuilder sb, GameObject go, string path, int indentLevel)
         {
-            Scene active = SceneManager.GetActiveScene();
-            if (!active.IsValid() || !active.isLoaded)
-                throw new InvalidOperationException("Active scene is not valid or not loaded.");
+            string indent = Indent(indentLevel);
+            string indentInner = Indent(indentLevel + 1);
 
-            var snap = new SceneHierarchySnapshot
+            sb.Append(indent).Append("{\n");
+            sb.Append(indentInner).Append("\"name\": \"").Append(JsonEscape(go.name)).Append("\",\n");
+            sb.Append(indentInner).Append("\"path\": \"").Append(JsonEscape(path)).Append("\",\n");
+            sb.Append(indentInner).Append("\"isActive\": ").Append(go.activeSelf ? "true" : "false").Append(",\n");
+
+            // Components
+            sb.Append(indentInner).Append("\"components\": [");
+            var comps = go.GetComponents<Component>();
+            if (comps != null && comps.Length > 0)
             {
-                schemaVersion = 1,
-                generatedUtc = DateTime.UtcNow.ToString("O"),
-                activeSceneName = active.name,
-                activeScenePath = active.path,
-                roots = new List<GameObjectNode>()
-            };
-
-            GameObject[] roots = active.GetRootGameObjects();
-            Array.Sort(roots, (a, b) => string.CompareOrdinal(a.name, b.name));
-
-            foreach (var go in roots)
-                snap.roots.Add(BuildNode(go));
-
-            return snap;
-        }
-
-        private static GameObjectNode BuildNode(GameObject go)
-        {
-            var node = new GameObjectNode
-            {
-                name = go.name,
-                path = GetHierarchyPath(go.transform),
-                isActive = go.activeSelf,
-                components = new List<string>(),
-                children = new List<GameObjectNode>()
-            };
-
-            Component[] comps = go.GetComponents<Component>();
-            foreach (var c in comps)
-            {
-                if (c == null)
+                sb.Append("\n");
+                for (int i = 0; i < comps.Length; i++)
                 {
-                    node.components.Add("<MissingComponent>");
-                    continue;
+                    Component c = comps[i];
+                    string typeName = c == null ? "<Missing Script>" : c.GetType().FullName;
+
+                    sb.Append(indentInner).Append("  \"").Append(JsonEscape(typeName)).Append("\"");
+                    if (i < comps.Length - 1) sb.Append(",\n");
+                    else sb.Append("\n");
                 }
-                node.components.Add(c.GetType().FullName ?? c.GetType().Name);
+                sb.Append(indentInner).Append("],\n");
+            }
+            else
+            {
+                sb.Append("],\n");
             }
 
-            node.components.Sort(StringComparer.Ordinal);
-
+            // Children
+            sb.Append(indentInner).Append("\"children\": [");
             int childCount = go.transform.childCount;
-            for (int i = 0; i < childCount; i++)
+            if (childCount > 0)
             {
-                Transform child = go.transform.GetChild(i);
-                node.children.Add(BuildNode(child.gameObject));
+                sb.Append("\n");
+                for (int i = 0; i < childCount; i++)
+                {
+                    Transform child = go.transform.GetChild(i);
+                    GameObject childGo = child.gameObject;
+
+                    string childPath = path + "/" + childGo.name;
+                    WriteNode(sb, childGo, childPath, indentLevel + 2);
+
+                    if (i < childCount - 1) sb.Append(",\n");
+                    else sb.Append("\n");
+                }
+                sb.Append(indentInner).Append("]\n");
+            }
+            else
+            {
+                sb.Append("]\n");
             }
 
-            node.children.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
-            return node;
+            sb.Append(indent).Append("}");
         }
 
-        private static string GetHierarchyPath(Transform t)
+        private static string Indent(int level)
         {
-            var stack = new Stack<string>();
-            while (t != null)
+            return new string(' ', level * 2);
+        }
+
+        private static string JsonEscape(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+
+            var sb = new StringBuilder(s.Length + 16);
+            for (int i = 0; i < s.Length; i++)
             {
-                stack.Push(t.name);
-                t = t.parent;
+                char ch = s[i];
+                switch (ch)
+                {
+                    case '\"': sb.Append("\\\""); break;
+                    case '\\': sb.Append("\\\\"); break;
+                    case '\b': sb.Append("\\b"); break;
+                    case '\f': sb.Append("\\f"); break;
+                    case '\n': sb.Append("\\n"); break;
+                    case '\r': sb.Append("\\r"); break;
+                    case '\t': sb.Append("\\t"); break;
+                    default:
+                        if (ch < 0x20)
+                            sb.Append("\\u").Append(((int)ch).ToString("x4"));
+                        else
+                            sb.Append(ch);
+                        break;
+                }
             }
-            return "/" + string.Join("/", stack);
-        }
-
-        private static string GetProjectRootAbsolute()
-        {
-            string assetsPath = UnityEngine.Application.dataPath; // <root>/Assets
-            DirectoryInfo? parent = Directory.GetParent(assetsPath);
-            if (parent == null)
-                throw new InvalidOperationException("Unable to resolve project root from UnityEngine.Application.dataPath.");
-
-            return parent.FullName;
-        }
-
-        private static string EnsureReconDocsFolder(string projectRootAbs)
-        {
-            string outputDir = Path.Combine(projectRootAbs, "Recon Docs");
-            if (!Directory.Exists(outputDir))
-                Directory.CreateDirectory(outputDir);
-
-            return outputDir;
-        }
-
-        [Serializable]
-        private class SceneHierarchySnapshot
-        {
-            public int schemaVersion;
-            public string generatedUtc = "";
-            public string activeSceneName = "";
-            public string activeScenePath = "";
-            public List<GameObjectNode> roots = new List<GameObjectNode>();
-        }
-
-        [Serializable]
-        private class GameObjectNode
-        {
-            public string name = "";
-            public string path = "";
-            public bool isActive;
-            public List<string> components = new List<string>();
-            public List<GameObjectNode> children = new List<GameObjectNode>();
+            return sb.ToString();
         }
     }
 }

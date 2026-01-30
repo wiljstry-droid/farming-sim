@@ -1,0 +1,212 @@
+{
+    "schemaVersion": 1,
+    "generatedUtc": "2026-01-30T07:23:59.2871244Z",
+    "activeSceneName": "OutdoorsScene",
+    "activeScenePath": "Assets/OutdoorsScene.unity",
+    "roots": [
+        {
+            "name": "AppRoot",
+            "path": "/AppRoot",
+            "isActive": true,
+            "components": [
+                "UnityEngine.Transform"
+            ],
+            "children": [
+                {
+                    "name": "BootstrapAuthority",
+                    "path": "/AppRoot/BootstrapAuthority",
+                    "isActive": true,
+                    "components": [
+                        "FarmSim.Application.Bootstrap.BootstrapAuthority",
+                        "FarmSim.Application.Bootstrap.Diagnostics.BootstrapDiagnostics",
+                        "UnityEngine.Transform"
+                    ],
+                    "children": [
+                        {
+                            "name": "Field",
+                            "path": "/AppRoot/BootstrapAuthority/Field",
+                            "isActive": true,
+                            "components": [
+                                "FarmSim.Application.Simulation.Field.FieldPatchActionGateAuthorityProvider",
+                                "FarmSim.Application.Simulation.Field.FieldPatchActionGateConsumerProbe",
+                                "FarmSim.Application.Simulation.Field.FieldPatchAssignmentAuthorityDebugProbe",
+                                "FarmSim.Application.Simulation.Field.FieldPatchAssignmentAuthorityHost",
+                                "FarmSim.Application.Simulation.Field.FieldPatchAssignmentReadOnlyProvider",
+                                "UnityEngine.Transform"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Simulation",
+                    "path": "/AppRoot/Simulation",
+                    "isActive": true,
+                    "components": [
+                        "UnityEngine.Transform"
+                    ],
+                    "children": [
+                        {
+                            "name": "Field",
+                            "path": "/AppRoot/Simulation/Field",
+                            "isActive": true,
+                            "components": [
+                                "UnityEngine.Transform"
+                            ],
+                            "children": [
+                                {
+                                    "name": "FieldPatch_001",
+                                    "path": "/AppRoot/Simulation/Field/FieldPatch_001",
+                                    "isActive": true,
+                                    "components": [
+                                        "FarmSim.Application.Simulation.Field.FieldPatchAnchor",
+                                        "FarmSim.Application.Simulation.Field.FieldPatchSoilBucketLink",
+                                        "UnityEngine.Transform"
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "SimulationTimeAuthority",
+                            "path": "/AppRoot/Simulation/SimulationTimeAuthority",
+                            "isActive": true,
+                            "components": [
+                                "FarmSim.Application.Simulation.Time.SimulationTimeAuthority",
+                                "FarmSim.Application.Simulation.Time.SimulationTimeAuthorityReadModelPublisher",
+                                "UnityEngine.Transform"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "SimulationHUD",
+                    "path": "/AppRoot/SimulationHUD",
+                    "isActive": true,
+                    "components": [
+                        "UnityEngine.Transform"
+                    ],
+                    "children": [
+                        {
+                            "name": "Canvas",
+                            "path": "/AppRoot/SimulationHUD/Canvas",
+                            "isActive": true,
+                            "components": [
+                                "UnityEngine.Canvas",
+                                "UnityEngine.RectTransform",
+                                "UnityEngine.UI.CanvasScaler",
+                                "UnityEngine.UI.GraphicRaycaster"
+                            ],
+                            "children": [
+                                {
+                                    "name": "HudView",
+                                    "path": "/AppRoot/SimulationHUD/Canvas/HudView",
+                                    "isActive": true,
+                                    "components": [
+                                        "FarmSim.Application.Simulation.HUD.SimulationHudSoilBucketBinder",
+                                        "FarmSim.Application.Simulation.HUD.SimulationHudTimeBinder",
+                                        "FarmSim.Application.Simulation.HUD.SimulationHudView",
+                                        "UnityEngine.RectTransform"
+                                    ],
+                                    "children": [
+                                        {
+                                            "name": "HudText",
+                                            "path": "/AppRoot/SimulationHUD/Canvas/HudView/HudText",
+                                            "isActive": true,
+                                            "components": [
+                                                "TMPro.TextMeshProUGUI",
+                                                "UnityEngine.CanvasRenderer",
+                                                "UnityEngine.RectTransform"
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "SimulationTick",
+                    "path": "/AppRoot/SimulationTick",
+                    "isActive": true,
+                    "components": [
+                        "FarmSim.Application.Simulation.Step.Diagnostics.DebugGateDeniedStep",
+                        "FarmSim.Application.Simulation.Step.FirstSimulationStepExecutor",
+                        "FarmSim.Application.Simulation.Step.SecondSimulationStepExecutor",
+                        "FarmSim.Application.Simulation.Step.SoilMoistureBucketStepExecutor",
+                        "FarmSim.Application.Simulation.Tick.Diagnostics.SimulationTickExecutionSnapshotDebugProbe",
+                        "FarmSim.Application.Simulation.Tick.SimulationTickAuthority",
+                        "UnityEngine.Transform"
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "EventSystem",
+            "path": "/EventSystem",
+            "isActive": true,
+            "components": [
+                "UnityEngine.EventSystems.EventSystem",
+                "UnityEngine.InputSystem.UI.InputSystemUIInputModule",
+                "UnityEngine.Transform"
+            ],
+            "children": []
+        },
+        {
+            "name": "Main Camera",
+            "path": "/Main Camera",
+            "isActive": true,
+            "components": [
+                "UnityEngine.AudioListener",
+                "UnityEngine.Camera",
+                "UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData",
+                "UnityEngine.Transform"
+            ],
+            "children": []
+        },
+        {
+            "name": "SimulationWorldStateAuthority",
+            "path": "/SimulationWorldStateAuthority",
+            "isActive": true,
+            "components": [
+                "FarmSim.Application.Simulation.World.SimulationWorldStateAuthority",
+                "UnityEngine.Transform"
+            ],
+            "children": []
+        },
+        {
+            "name": "Sky and Fog Volume",
+            "path": "/Sky and Fog Volume",
+            "isActive": true,
+            "components": [
+                "UnityEngine.Rendering.Volume",
+                "UnityEngine.Transform"
+            ],
+            "children": []
+        },
+        {
+            "name": "StaticLightingSky",
+            "path": "/StaticLightingSky",
+            "isActive": true,
+            "components": [
+                "UnityEngine.Rendering.HighDefinition.StaticLightingSky",
+                "UnityEngine.Transform"
+            ],
+            "children": []
+        },
+        {
+            "name": "Sun",
+            "path": "/Sun",
+            "isActive": true,
+            "components": [
+                "UnityEngine.Light",
+                "UnityEngine.Rendering.HighDefinition.HDAdditionalLightData",
+                "UnityEngine.Transform"
+            ],
+            "children": []
+        }
+    ]
+}
