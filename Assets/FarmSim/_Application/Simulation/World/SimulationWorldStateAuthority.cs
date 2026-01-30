@@ -1,15 +1,10 @@
-using FarmSim.Application.Simulation.World.Model.Environment;
 using UnityEngine;
 
 namespace FarmSim.Application.Simulation.World
 {
     public sealed class SimulationWorldStateAuthority : MonoBehaviour
     {
-        public SimulationWorldEnvironmentStateRoot Environment { get; }
-
-        public SimulationWorldStateAuthority()
-        {
-            Environment = new SimulationWorldEnvironmentStateRoot();
-        }
+        // Phase 38: structural placeholder only.
+        // World root model is declared in FarmSim.Application.Simulation.World.Model.
     }
 }
