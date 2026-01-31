@@ -20,7 +20,6 @@ namespace FarmSim.Application.Simulation.Tick
 
         private bool loggedCoupling;
 
-        // One-time diagnostics for early exits (Phase 24 verification support).
         private bool loggedGateBlocked;
         private bool loggedNoDeltaSource;
         private bool loggedZeroDelta;
@@ -29,9 +28,10 @@ namespace FarmSim.Application.Simulation.Tick
         [SerializeField] private bool strictOutcomeGovernanceLogs = false;
 
         private long tickIndex;
-        private ISimulationStep[] orderedStepsCache;
 
-        // Kept to preserve existing diagnostic binding surface.
+        private ISimulationStep[] orderedStepsCache;
+        private ISimulationStep[] discoveredStepsCache;
+
         private ISimulationTickExecutor boundExecutor;
 
         public SimulationTickExecutionSnapshot LastExecutionSnapshot { get; private set; }
@@ -41,14 +41,9 @@ namespace FarmSim.Application.Simulation.Tick
             boundExecutor = executor;
         }
 
-        /// <summary>
-        /// Optional explicit binding hook (kept), but canonical default coupling happens in Start().
-        /// </summary>
         public void BindTimeDeltaSource(ISimulationTimeDeltaSource source)
         {
             timeDeltaSource = source;
-
-            // Reset one-time flags when binding occurs (so we can see new state).
             loggedNoDeltaSource = false;
             loggedZeroDelta = false;
         }
@@ -56,8 +51,6 @@ namespace FarmSim.Application.Simulation.Tick
         public void SetPaused(bool paused)
         {
             gate.SetPaused(paused);
-
-            // Reset so we can see the first blocked state after a pause change.
             loggedGateBlocked = false;
         }
 
@@ -74,7 +67,6 @@ namespace FarmSim.Application.Simulation.Tick
 
         private void Start()
         {
-            // Canonical default coupling (Phase 24.7 restore).
             if (timeDeltaSource == null)
             {
                 timeDeltaSource = SimulationTimeAuthority.Instance;
@@ -97,13 +89,12 @@ namespace FarmSim.Application.Simulation.Tick
 
         private void Update()
         {
-            // Ensure we have steps cached (deterministic ordering established elsewhere).
-            if (orderedStepsCache == null)
+            if (discoveredStepsCache == null)
             {
-                orderedStepsCache = GetComponentsInChildren<ISimulationStep>(true);
+                discoveredStepsCache = GetComponentsInChildren<ISimulationStep>(true);
+                RebuildExecutedStepsCache();
             }
 
-            // NOTE: repo gate API is CanTick() (not IsPaused).
             if (!gate.CanTick())
             {
                 if (!loggedGateBlocked)
@@ -124,7 +115,6 @@ namespace FarmSim.Application.Simulation.Tick
                 return;
             }
 
-            // Source property type may be float/double; normalize locally as float (repo model uses float).
             float deltaSeconds = (float)timeDeltaSource.DeltaTimeSeconds;
 
             if (deltaSeconds <= 0f)
@@ -143,7 +133,6 @@ namespace FarmSim.Application.Simulation.Tick
 
             tickIndex++;
 
-            // Preserve existing diagnostic binding surface (if present).
             if (boundExecutor != null)
             {
                 var snapshot = new SimulationTickSnapshot(deltaSeconds);
@@ -154,13 +143,17 @@ namespace FarmSim.Application.Simulation.Tick
 
             var records = new List<SimulationStepExecutionRecord>();
 
+            if (orderedStepsCache == null)
+            {
+                RebuildExecutedStepsCache();
+            }
+
             for (int i = 0; i < orderedStepsCache.Length; i++)
             {
                 var step = orderedStepsCache[i];
                 if (step == null)
                     continue;
 
-                // --- Gate evaluation (if step supports it) ---
                 if (step is ISimulationStepGate gateStep)
                 {
                     string reasonCode;
@@ -186,7 +179,6 @@ namespace FarmSim.Application.Simulation.Tick
 
                         var deniedOutcome = SimulationStepOutcome.Denied(reasonCode, reasonDetail);
 
-                        // Phase 27: outcome governance enforcement (read-only, non-breaking).
                         var deniedGovViolation = SimulationStepOutcomeGovernance.Validate(deniedOutcome);
                         if (deniedGovViolation.IsViolation)
                         {
@@ -202,7 +194,6 @@ namespace FarmSim.Application.Simulation.Tick
                     }
                 }
 
-                // --- Preferred outcome-based execution ---
                 if (step is ISimulationStepWithOutcome outcomeStep)
                 {
                     SimulationStepOutcome outcome;
@@ -219,7 +210,6 @@ namespace FarmSim.Application.Simulation.Tick
                     if (outcome == null)
                         outcome = SimulationStepOutcome.Failed(new InvalidOperationException("Step returned null outcome."));
 
-                    // Phase 27: outcome governance enforcement (read-only, non-breaking).
                     var govViolation = SimulationStepOutcomeGovernance.Validate(outcome);
                     if (govViolation.IsViolation)
                     {
@@ -238,13 +228,11 @@ namespace FarmSim.Application.Simulation.Tick
                     continue;
                 }
 
-                // --- Legacy execution path ---
                 try
                 {
                     step.Execute(context);
                     var legacyOutcome = SimulationStepOutcome.Success();
 
-                    // Phase 27: outcome governance enforcement (read-only, non-breaking).
                     var legacyGovViolation = SimulationStepOutcomeGovernance.Validate(legacyOutcome);
                     if (legacyGovViolation.IsViolation)
                     {
@@ -261,7 +249,6 @@ namespace FarmSim.Application.Simulation.Tick
                 {
                     var legacyFailOutcome = SimulationStepOutcome.Failed(ex);
 
-                    // Phase 27: outcome governance enforcement (read-only, non-breaking).
                     var legacyFailGovViolation = SimulationStepOutcomeGovernance.Validate(legacyFailOutcome);
                     if (legacyFailGovViolation.IsViolation)
                     {
@@ -278,6 +265,45 @@ namespace FarmSim.Application.Simulation.Tick
             }
 
             LastExecutionSnapshot = new SimulationTickExecutionSnapshot(tickIndex, deltaSeconds, records);
+        }
+
+        private void RebuildExecutedStepsCache()
+        {
+            if (discoveredStepsCache == null)
+            {
+                orderedStepsCache = Array.Empty<ISimulationStep>();
+                return;
+            }
+
+            // If any authoritative steps exist, execute ONLY those.
+            // Proof steps are always excluded.
+            var authoritative = new List<ISimulationStep>();
+            bool foundAnyAuthoritative = false;
+
+            for (int i = 0; i < discoveredStepsCache.Length; i++)
+            {
+                var s = discoveredStepsCache[i];
+                if (s == null)
+                    continue;
+
+                if (s is ISimulationProofStep)
+                    continue;
+
+                if (s is ISimulationAuthoritativeStep)
+                {
+                    foundAnyAuthoritative = true;
+                    authoritative.Add(s);
+                }
+            }
+
+            if (foundAnyAuthoritative)
+            {
+                orderedStepsCache = authoritative.ToArray();
+                return;
+            }
+
+            // Legacy fallback until tagging/wiring is applied.
+            orderedStepsCache = discoveredStepsCache;
         }
     }
 }

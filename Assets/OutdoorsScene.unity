@@ -813,6 +813,10 @@ GameObject:
   - component: {fileID: 1108713725}
   - component: {fileID: 1108713726}
   - component: {fileID: 1108713727}
+  - component: {fileID: 1108713731}
+  - component: {fileID: 1108713730}
+  - component: {fileID: 1108713729}
+  - component: {fileID: 1108713728}
   m_Layer: 0
   m_Name: SimulationTick
   m_TagString: Untagged
@@ -909,7 +913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece7217d54b1c9f46852addb19734155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Diagnostics.DebugGateDeniedStep
-  stepId: Debug.GateDenied.Phase24
 --- !u!114 &1108713727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,6 +926,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Phase39ProofStepExecutor
   _soilMoisture: {fileID: 1655391255}
+--- !u!114 &1108713728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108713718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331d39c33c5e7dc42991935c990bd13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Markers.ProofStepMarker
+  stepBehaviour: {fileID: 1108713727}
+--- !u!114 &1108713729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108713718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f456957cbdcbb40bfecbe64f73ced1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Markers.AuthoritativeStepMarker
+  stepBehaviour: {fileID: 1108713724}
+--- !u!114 &1108713730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108713718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f456957cbdcbb40bfecbe64f73ced1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Markers.AuthoritativeStepMarker
+  stepBehaviour: {fileID: 1108713723}
+--- !u!114 &1108713731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108713718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f456957cbdcbb40bfecbe64f73ced1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Markers.AuthoritativeStepMarker
+  stepBehaviour: {fileID: 1108713721}
 --- !u!1 &1146849453
 GameObject:
   m_ObjectHideFlags: 0
