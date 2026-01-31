@@ -1,34 +1,29 @@
+#nullable enable
+
 using UnityEngine;
+
 using FarmSim.Application.Simulation.Step.Contracts;
-using FarmSim.Application.Simulation.Step.Model;
 
 namespace FarmSim.Application.Simulation.Step.Diagnostics
 {
     /// <summary>
-    /// Deterministic proof step for Phase 24:
-    /// - Implements a gate that always denies.
-    /// - Provides stable reason code + optional detail.
-    /// - Ensures denied steps produce Denied outcomes in the tick snapshot.
-    ///
-    /// Foundation-only diagnostics step. Safe to delete later.
+    /// Phase 24 proof step: this step is expected to be denied by the tick gate.
+    /// If Execute ever runs, gating failed (purely diagnostic).
     /// </summary>
-    public sealed class DebugGateDeniedStep : MonoBehaviour, ISimulationStep, ISimulationStepGate
+    public sealed class DebugGateDeniedStep : MonoBehaviour, ISimulationStep
     {
-        [SerializeField] private string stepId = "Debug.GateDenied.Phase24";
+        // Must match the log you already see:
+        // [OutcomeGov] step=Debug.GateDenied.Phase24 ...
+        public string StepId => "Debug.GateDenied.Phase24";
 
-        public string StepId => stepId;
+        // IMPORTANT: Policy-valid token: no spaces, no parentheses.
+        // Use this wherever the denial ReasonDetail is set.
+        public const string ReasonDetailToken = "DebugGateDeniedStep.Phase24_proof";
 
-        public bool IsAllowed(out string reasonCode, out string reasonDetail)
-        {
-            reasonCode = SimulationStepGateReasonCodes.NotReady;
-            reasonDetail = "DebugGateDeniedStep (Phase24 proof)";
-            return false;
-        }
-
-        // Must never run when gate denies.
         public void Execute(ISimulationStepContext context)
         {
-            Debug.LogError("[DebugGateDeniedStep] Execute ran but should have been denied.");
+            // If you see this, the gate did NOT deny as expected.
+            Debug.LogError("[DebugGateDeniedStep] Execute ran but should have been denied by the gate.");
         }
     }
 }
