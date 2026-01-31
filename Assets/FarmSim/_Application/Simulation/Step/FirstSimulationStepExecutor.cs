@@ -32,8 +32,7 @@ namespace FarmSim.Application.Simulation.Step
 
         private void ExecuteCore(float deltaSeconds)
         {
-            if (deltaSeconds <= 0f)
-                return;
+            if (deltaSeconds <= 0f) return;
 
             if (!loggedFirst)
             {
@@ -42,7 +41,6 @@ namespace FarmSim.Application.Simulation.Step
             }
 
             var report = core.Step(deltaSeconds);
-
             if (report)
             {
                 var s = core.State;

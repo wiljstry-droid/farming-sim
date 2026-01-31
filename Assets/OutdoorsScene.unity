@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1108713724}
   - component: {fileID: 1108713725}
   - component: {fileID: 1108713726}
+  - component: {fileID: 1108713727}
   m_Layer: 0
   m_Name: SimulationTick
   m_TagString: Untagged
@@ -895,8 +896,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420065a4800612f4a9e2cff45511f9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Tick.Diagnostics.SimulationTickExecutionSnapshotDebugProbe
-  printEveryTick: 1
+  printEveryTick: 0
 --- !u!114 &1108713726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108713718}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece7217d54b1c9f46852addb19734155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Diagnostics.DebugGateDeniedStep
+  stepId: Debug.GateDenied.Phase24
+--- !u!114 &1108713727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -905,10 +919,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108713718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece7217d54b1c9f46852addb19734155, type: 3}
+  m_Script: {fileID: 11500000, guid: e33af86efb965bd44881c7fcfc4136b6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Diagnostics.DebugGateDeniedStep
-  stepId: Debug.GateDenied.Phase24
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Phase39ProofStepExecutor
+  _soilMoisture: {fileID: 1655391255}
 --- !u!1 &1146849453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,12 +1030,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228245644}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1655391252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372944903
 GameObject:
@@ -1113,6 +1127,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1655391252}
   - component: {fileID: 1655391251}
+  - component: {fileID: 1655391254}
+  - component: {fileID: 1655391255}
   m_Layer: 0
   m_Name: SimulationWorldStateAuthority
   m_TagString: Untagged
@@ -1144,9 +1160,37 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1228245647}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655391254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655391250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc891e4c34c9baa428ddc7cc6a01d629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.Step.Phase39ProofStateAuthority
+  _revision: 0
+  _counter: 0
+--- !u!114 &1655391255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655391250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c75900f8a7e364b842a2b245ca8287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmSim.Application.Simulation.World.SoilMoistureBucketWorldStateAuthority
+  _moisture01: 0.25
 --- !u!1 &1746382438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,5 +1710,4 @@ SceneRoots:
   - {fileID: 432432461}
   - {fileID: 2013410475}
   - {fileID: 1146849454}
-  - {fileID: 1228245647}
   - {fileID: 1655391252}
